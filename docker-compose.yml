@@ -1,0 +1,117 @@
+services:
+  node1:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-node1
+    volumes:
+      - ./nodes/node-1/data:/data
+      - ./genesis.json:/genesis.json
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --rpc-http-enabled
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    ports:
+      - "8545:8545"
+    networks:
+      - qbft
+
+  node2:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-node2
+    depends_on:
+      - node1
+    volumes:
+      - ./nodes/node-2/data:/data
+      - ./genesis.json:/genesis.json
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://a66e2d43545442d413264574268432422a6056e91c54f84a5cdfb42cc102847a6c19a946734f985a0b004067d306d5ca3c9e1642b5e2249553e21b38194bbde8@172.30.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      - qbft
+
+  node3:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-node3
+    depends_on:
+      - node1
+    volumes:
+      - ./nodes/node-3/data:/data
+      - ./genesis.json:/genesis.json
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://a66e2d43545442d413264574268432422a6056e91c54f84a5cdfb42cc102847a6c19a946734f985a0b004067d306d5ca3c9e1642b5e2249553e21b38194bbde8@172.30.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      - qbft
+
+  node4:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-node4
+    depends_on:
+      - node1
+    volumes:
+      - ./nodes/node-4/data:/data
+      - ./genesis.json:/genesis.json
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://a66e2d43545442d413264574268432422a6056e91c54f84a5cdfb42cc102847a6c19a946734f985a0b004067d306d5ca3c9e1642b5e2249553e21b38194bbde8@172.30.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      - qbft
+
+  rpcnode:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-rpcnode
+    depends_on:
+      - node1
+    volumes:
+      - ./nodes/rpcnode/data:/data
+      - ./genesis.json:/genesis.json
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --bootnodes=enode://a66e2d43545442d413264574268432422a6056e91c54f84a5cdfb42cc102847a6c19a946734f985a0b004067d306d5ca3c9e1642b5e2249553e21b38194bbde8@172.30.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-api=ETH,NET,QBFT,WEB3
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    ports:
+      - "8555:8545"
+    networks:
+      qbft:
+        ipv4_address: 172.30.0.11
+
+networks:
+  qbft:
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

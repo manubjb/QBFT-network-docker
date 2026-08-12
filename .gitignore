@@ -1,0 +1,22 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Besu node private keys and generated blockchain artifacts
+nodes/**/data/key
+nodes/**/data/key.pub
+nodes/networkFiles/
+
+# Besu runtime state
+nodes/**/data/database/
+nodes/**/data/caches/
+nodes/**/data/DATABASE_METADATA.json
+nodes/**/data/VERSION_METADATA.json
+nodes/**/data/besu.ports
+nodes/**/data/besu.networks
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/
