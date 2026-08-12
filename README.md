@@ -53,22 +53,11 @@ docker compose down
 
 Para remover tambem dados locais gerados, apague os diretorios dentro de `nodes/*/data` conforme necessario.
 
-## O Que Pode Ser Comitado
+## Seguranca
 
-Arquivos recomendados para publicar:
+Este repositorio foi preparado para publicar apenas a configuracao e os scripts necessarios para reproduzir a prova de conceito.
 
-```text
-.gitignore
-README.md
-config/qbftConfigFile.json
-docker-compose.yml
-genesis.json
-scripts/generate-network.sh
-```
-
-## O Que Nao Deve Ser Comitado
-
-Nao publique chaves privadas, estado local dos nos ou arquivos de ambiente:
+Nao publique chaves privadas, estado local dos nos ou arquivos de ambiente. Esses arquivos sao gerados localmente durante a execucao da rede e estao listados no `.gitignore`:
 
 ```text
 .env
@@ -83,16 +72,3 @@ nodes/**/data/*METADATA.json
 ```
 
 Arquivos `key` sao chaves privadas dos nos Besu. Se forem publicados, qualquer pessoa pode usar essas chaves.
-
-## Publicacao no GitHub
-
-Antes de publicar, confira o que sera enviado:
-
-```bash
-git status --short
-git add .gitignore README.md config docker-compose.yml genesis.json scripts
-git status --short
-git commit -m "Initial QBFT network setup"
-```
-
-Se alguma chave ou arquivo dentro de `nodes/networkFiles/` aparecer no `git status`, nao faca commit ate corrigir o `.gitignore`.
