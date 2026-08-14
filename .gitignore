@@ -7,6 +7,15 @@
 nodes/**/data/key
 nodes/**/data/key.pub
 nodes/networkFiles/
+nodes/networkFiles.backup-*/
+nodes/networkFiles.tmp.backup-*/
+
+# Local benchmarking dependencies, logs and private network config
+caliper-workspace/node_modules/
+caliper-workspace/**/node_modules/
+caliper-workspace/*.log
+caliper-workspace/**/*.log
+caliper-workspace/networks/besuDocker.json
 
 # Besu runtime state
 nodes/**/data/database/
