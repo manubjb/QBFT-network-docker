@@ -23,7 +23,7 @@ Nos experimentos, o tráfego de benchmarking foi gerado pelo Hyperledger Caliper
 
 ## Topologia Experimental
 
-![Topologia da rede QBFT usada no experimento](caliper-workspace/docs/topology-qbft-caliper.png)
+![Topologia da rede QBFT usada no experimento](docs/topology-qbft-caliper.png)
 
 A topologia experimental utiliza quatro validadores QBFT em malha P2P e um `rpcnode` não validador, usado como ponto de acesso RPC HTTP/WebSocket. O tráfego de benchmarking do Hyperledger Caliper é direcionado ao `rpcnode`.
 
