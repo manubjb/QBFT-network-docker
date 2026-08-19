@@ -46,17 +46,14 @@ chmod +x scripts/generate-network.sh
 ./scripts/generate-network.sh
 ```
 
-<<<<<<< HEAD
 O script gera os artefatos em `nodes/networkFiles/`. Esses arquivos incluem chaves privadas e não devem ser publicados.
 
 ## Subir os Nós
-=======
 O script gera os artefatos locais da rede em `nodes/networkFiles/`, copia as chaves para `nodes/node-*/data/`, atualiza o `genesis.json` e cria o `.env` com a chave pública usada como bootnode.
 
 Esses arquivos locais incluem chaves privadas e não devem ser publicados.
 
 ## Subir a Rede
->>>>>>> 117c0e3 (Update README.md for clarity and completeness, including detailed context and security guidelines)
 
 ```bash
 docker compose up -d
@@ -74,7 +71,6 @@ Endpoints expostos:
 docker compose down
 ```
 
-<<<<<<< HEAD
 Para remover também dados locais gerados, apague os diretórios dentro de `nodes/*/data` conforme necessário.
 
 ## Seguranca
@@ -83,7 +79,7 @@ Este repositório foi preparado para publicar apenas a configuração e os scrip
 
 Não publique chaves privadas, estado local dos nós ou arquivos de ambiente. Esses arquivos são gerados localmente durante a execução da rede e estão listados no `.gitignore`:
 
-=======
+
 Para reiniciar a rede do zero, pare os containers e gere os arquivos locais novamente:
 
 ```bash
@@ -108,21 +104,9 @@ Cada pessoa deve gerar as próprias chaves localmente. As chaves não precisam s
 
 A pasta `caliper-workspace/` registra a configuração usada para avaliar a função `registrarBatch` do contrato `RegistroDeBatches`.
 
-Arquivos publicáveis:
+O arquivo local `caliper-workspace/networks/besuDocker.json` não é versionado por conter caminhos absolutos da máquina local e a chave privada de uma conta de teste. Essa chave segue o padrão de contas de exemplo usadas na documentação e tutoriais do Besu/Ethereum para ambientes locais, portanto não representa credencial de produção nem protege ativos reais neste projeto.
 
-```text
-caliper-workspace/benchmarks/config.yaml
-caliper-workspace/workload/registrarBatch.js
-caliper-workspace/networks/contracts/RegistroDeBatches.json
-caliper-workspace/package.json
-caliper-workspace/package-lock.json
-caliper-workspace/report.html
-caliper-workspace/.nvmrc
-```
-
-O arquivo `caliper-workspace/report.html` contém o relatório gerado pelo Caliper.
-
-O arquivo local `caliper-workspace/networks/besuDocker.json` não é versionado porque contém chave privada de conta de teste e caminhos absolutos da máquina local. Para reproduzir o benchmark, crie localmente uma configuração equivalente apontando para `ws://localhost:8556` e para o contrato em `caliper-workspace/networks/contracts/RegistroDeBatches.json`.
+Mesmo assim, ela deve ser tratada como chave pública de teste: não deve ser reutilizada em Mainnet, testnets públicas, redes institucionais ou qualquer ambiente com valor real. Para reproduzir o benchmark, crie localmente uma configuração equivalente apontando para `ws://localhost:8556` e para o contrato em `caliper-workspace/networks/contracts/RegistroDeBatches.json`.
 
 ## Segurança
 
@@ -132,5 +116,4 @@ Não publique chaves privadas, estado local dos nós, arquivos de ambiente, depe
 
 Arquivos `key` são chaves privadas dos nós Besu. Se forem publicados, qualquer pessoa pode usar essas chaves.
 
-O arquivo `besuDocker.json` do Caliper também deve permanecer local quando contiver chaves privadas ou caminhos absolutos da máquina.
->>>>>>> 117c0e3 (Update README.md for clarity and completeness, including detailed context and security guidelines)
+O arquivo `besuDocker.json` do Caliper também deve permanecer local quando contiver caminhos absolutos da máquina. Caso uma chave privada de exemplo seja publicada para fins de reprodução acadêmica, ela deve ser explicitamente identificada como chave pública de teste, sem uso em redes reais.
