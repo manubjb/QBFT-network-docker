@@ -1,0 +1,56 @@
+test:
+  name: registrarBatch-tps-sweep
+  description: >-
+    Varredura de TPS na função registrarBatch do contrato RegistroDeBatches,
+    rede QBFT conteinerizada (4 validadores), alvo rpcnode.
+  workers:
+    number: 1
+  rounds:
+    - label: tps-10
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 10
+      workload:
+        module: workload/registrarBatch.js
+    - label: tps-20
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 20
+      workload:
+        module: workload/registrarBatch.js
+    - label: tps-40
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 40
+      workload:
+        module: workload/registrarBatch.js
+    - label: tps-60
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 60
+      workload:
+        module: workload/registrarBatch.js
+    - label: tps-80
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 80
+      workload:
+        module: workload/registrarBatch.js
+    - label: tps-100
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: workload/registrarBatch.js
