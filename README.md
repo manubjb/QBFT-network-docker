@@ -20,7 +20,12 @@ Os experimentos reportados na pesquisa foram conduzidos em uma topologia contain
 A rede é composta por quatro nós validadores Besu executando consenso QBFT e por um `rpcnode`, que atua como ponto de entrada RPC HTTP e WebSocket para ferramentas externas. O `rpcnode` participa da rede P2P, mas não valida blocos. Os validadores compõem a malha P2P responsável pelo consenso.
 
 Nos experimentos, o tráfego de benchmarking foi gerado pelo Hyperledger Caliper e direcionado ao `rpcnode`. Os contratos inteligentes foram escritos em Solidity e implantados no ambiente de teste, enquanto a geração de carga e a coleta de métricas foram realizadas com Hyperledger Caliper.
->>>>>>> 117c0e3 (Update README.md for clarity and completeness, including detailed context and security guidelines)
+
+## Topologia Experimental
+
+![Topologia da rede QBFT usada no experimento](docs/topology-qbft-caliper.png)
+
+A topologia experimental utiliza quatro validadores QBFT em malha P2P e um `rpcnode` não validador, usado como ponto de acesso RPC HTTP/WebSocket. O tráfego de benchmarking do Hyperledger Caliper é direcionado ao `rpcnode`.
 
 ## Requisitos
 
