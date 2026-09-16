@@ -10,11 +10,14 @@ services:
       - --genesis-file=/genesis.json
       - --node-private-key-file=/data/key
       - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
       - --rpc-http-api=ETH,NET,QBFT
       - --host-allowlist=*
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
+      - --tx-pool-max-future-by-sender=10000
+      - --tx-pool-max-prioritized=10000
     ports:
       - "8545:8545"
     networks:
@@ -35,11 +38,14 @@ services:
       - --node-private-key-file=/data/key
       - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.30.0.11:30303
       - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
       - --rpc-http-api=ETH,NET,QBFT
       - --host-allowlist=*
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
+      - --tx-pool-max-future-by-sender=10000
+      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.12
@@ -58,11 +64,14 @@ services:
       - --node-private-key-file=/data/key
       - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.30.0.11:30303
       - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
       - --rpc-http-api=ETH,NET,QBFT
       - --host-allowlist=*
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
+      - --tx-pool-max-future-by-sender=10000
+      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.13
@@ -81,11 +90,14 @@ services:
       - --node-private-key-file=/data/key
       - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.30.0.11:30303
       - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
       - --rpc-http-api=ETH,NET,QBFT
       - --host-allowlist=*
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
+      - --tx-pool-max-future-by-sender=10000
+      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.14
@@ -103,13 +115,17 @@ services:
       - --genesis-file=/genesis.json
       - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.30.0.11:30303
       - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
       - --rpc-http-api=ETH,NET,QBFT,WEB3
       - --rpc-ws-enabled
+      - --rpc-ws-host=0.0.0.0
       - --rpc-ws-api=ETH,NET,QBFT,WEB3
       - --host-allowlist=*
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
+      - --tx-pool-max-future-by-sender=10000
+      - --tx-pool-max-prioritized=10000
     ports:
       - "8555:8545"
       - "8556:8546"
