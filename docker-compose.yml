@@ -16,8 +16,6 @@ services:
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
-      - --tx-pool-max-future-by-sender=10000
-      - --tx-pool-max-prioritized=10000
     ports:
       - "8545:8545"
     networks:
@@ -44,8 +42,6 @@ services:
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
-      - --tx-pool-max-future-by-sender=10000
-      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.12
@@ -70,8 +66,6 @@ services:
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
-      - --tx-pool-max-future-by-sender=10000
-      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.13
@@ -96,8 +90,6 @@ services:
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
-      - --tx-pool-max-future-by-sender=10000
-      - --tx-pool-max-prioritized=10000
     networks:
       qbft:
         ipv4_address: 172.30.0.14
@@ -124,8 +116,6 @@ services:
       - --rpc-http-cors-origins=all
       - --nat-method=DOCKER
       - --p2p-port=30303
-      - --tx-pool-max-future-by-sender=10000
-      - --tx-pool-max-prioritized=10000
     ports:
       - "8555:8545"
       - "8556:8546"
