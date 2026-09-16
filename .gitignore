@@ -29,3 +29,5 @@ nodes/**/data/besu.networks
 .DS_Store
 .vscode/
 .idea/
+caliper-workspace/report.html
+caliper-workspace/resultados/
