@@ -82,7 +82,7 @@ Para remover também dados locais gerados, apague os diretórios dentro de `node
 
 Este repositório foi preparado para publicar apenas a configuração e os scripts necessários para reproduzir a prova de conceito.
 
-Não publique chaves privadas, estado local dos nós ou arquivos de ambiente. Esses arquivos são gerados localmente durante a execução da rede e estão listados no `.gitignore`:
+Não publique logs que contenham chaves ou configuração de rede. Os logs do Caliper em `resultados/` foram verificados antes do commit e são mantidos por serem necessários para regenerar os resumos.
 
 
 Para reiniciar a rede do zero, pare os containers e gere os arquivos locais novamente:
@@ -112,6 +112,10 @@ A pasta `caliper-workspace/` registra a configuração usada para avaliar a fun�
 O arquivo local `caliper-workspace/networks/besuDocker.json` não é versionado por conter caminhos absolutos da máquina local e a chave privada de uma conta de teste. Essa chave segue o padrão de contas de exemplo usadas na documentação e tutoriais do Besu/Ethereum para ambientes locais, portanto não representa credencial de produção nem protege ativos reais neste projeto.
 
 Mesmo assim, ela deve ser tratada como chave pública de teste: não deve ser reutilizada em Mainnet, testnets públicas, redes institucionais ou qualquer ambiente com valor real. Para reproduzir o benchmark, crie localmente uma configuração equivalente apontando para `ws://localhost:8556` e para o contrato em `caliper-workspace/networks/contracts/RegistroDeBatches.json`.
+
+## Experimentos de capacidade (branch `exp/capacidade`)
+
+A branch `exp/capacidade` contém experimentos exploratórios de capacidade que não foram incluídos no artigo. Cenários, protocolo, resultados e limitações estão descritos em [`EXPERIMENTOS.md`](EXPERIMENTOS.md).
 
 ## Segurança
 

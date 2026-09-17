@@ -1,0 +1,944 @@
+2026.09.16-21:55:04.114[32m info [39m [caliper] [cli-launch-manager] 	Set workspace path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace
+2026.09.16-21:55:04.115[32m info [39m [caliper] [cli-launch-manager] 	Set benchmark configuration path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace/benchmarks/config.yaml
+2026.09.16-21:55:04.115[32m info [39m [caliper] [cli-launch-manager] 	Set network configuration path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace/networks/besuDocker.json
+2026.09.16-21:55:04.115[32m info [39m [caliper] [cli-launch-manager] 	Set SUT type: ethereum
+2026.09.16-21:55:04.371[32m info [39m [caliper] [benchmark-validator] 	No observer specified, will default to `none`
+2026.09.16-21:55:04.371[32m info [39m [caliper] [caliper-engine] 	Starting benchmark flow
+2026.09.16-21:55:04.371[32m info [39m [caliper] [caliper-engine] 	Network configuration attribute "caliper.command.start" is not present, skipping start command
+2026.09.16-21:55:04.400[32m info [39m [caliper] [caliper-engine] 	Executed "init" step in 0.012 seconds
+2026.09.16-21:55:04.401[32m info [39m [caliper] [ethereum-connector] 	Creating contracts...
+2026.09.16-21:55:06.163[32m info [39m [caliper] [ethereum-connector] 	Deployed contract undefined at 0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0
+2026.09.16-21:55:06.164[32m info [39m [caliper] [caliper-engine] 	Executed "install" step in 1.763 seconds
+2026.09.16-21:55:06.166[32m info [39m [caliper] [monitor.js] 	No resource monitors specified
+2026.09.16-21:55:06.168[32m info [39m [caliper] [default-observer] 	Observer interval set to 5000 milliseconds
+2026.09.16-21:55:06.171[32m info [39m [caliper] [round-orchestrator] 	Preparing worker connections
+2026.09.16-21:55:06.172[32m info [39m [caliper] [worker-orchestrator] 	Launching worker 1 of 1
+2026.09.16-21:55:06.175[32m info [39m [caliper] [worker-orchestrator] 	Messenger not configured, entering configure phase...
+2026.09.16-21:55:06.175[32m info [39m [caliper] [worker-orchestrator] 	No existing workers detected, entering worker launch phase...
+2026.09.16-21:55:06.175[32m info [39m [caliper] [worker-orchestrator] 	Waiting for 1 workers to be connected...
+2026.09.16-21:55:06.293[32m info [39m [caliper] [cli-launch-worker] 	Set workspace path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace
+2026.09.16-21:55:06.294[32m info [39m [caliper] [cli-launch-worker] 	Set benchmark configuration path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace/benchmarks/config.yaml
+2026.09.16-21:55:06.294[32m info [39m [caliper] [cli-launch-worker] 	Set network configuration path: /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace/networks/besuDocker.json
+2026.09.16-21:55:06.294[32m info [39m [caliper] [cli-launch-worker] 	Set SUT type: ethereum
+2026.09.16-21:55:06.419[32m info [39m [caliper] [worker-orchestrator] 	1 workers connected, progressing to worker assignment phase.
+2026.09.16-21:55:06.419[32m info [39m [caliper] [worker-orchestrator] 	Workers currently unassigned, awaiting index assignment...
+2026.09.16-21:55:06.419[32m info [39m [caliper] [worker-orchestrator] 	Waiting for 1 workers to be assigned...
+2026.09.16-21:55:06.425[32m info [39m [caliper] [worker-orchestrator] 	1 workers assigned, progressing to worker initialization phase.
+2026.09.16-21:55:06.425[32m info [39m [caliper] [worker-orchestrator] 	Waiting for 1 workers to be ready...
+2026.09.16-21:55:06.425[32m info [39m [caliper] [worker-message-handler] 	Initializing Worker#0...
+2026.09.16-21:55:06.432[32m info [39m [caliper] [worker-message-handler] 	Worker#0 initialized
+2026.09.16-21:55:06.432[32m info [39m [caliper] [worker-orchestrator] 	1 workers ready, progressing to test preparation phase.
+2026.09.16-21:55:06.432[32m info [39m [caliper] [round-orchestrator] 	Started round 1 (tps-10)
+2026.09.16-21:55:06.433[32m info [39m [caliper] [worker-message-handler] 	Preparing Worker#0 for Round#0
+2026.09.16-21:55:06.461[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 0 is starting...
+2026.09.16-21:55:06.463[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 0 is completed
+2026.09.16-21:55:06.463[32m info [39m [caliper] [worker-message-handler] 	Worker#0 prepared for Round#0
+2026.09.16-21:55:06.463[32m info [39m [caliper] [worker-orchestrator] 	1 workers prepared, progressing to test phase.
+2026.09.16-21:55:06.463[32m info [39m [caliper] [round-orchestrator] 	Monitors successfully started
+2026.09.16-21:55:06.464[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is starting Round#0
+2026.09.16-21:55:06.471[32m info [39m [caliper] [caliper-worker] 	Worker #0 starting workload loop
+2026.09.16-21:55:11.480[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 41 Succ: 36 Fail:0 Unfinished:5
+2026.09.16-21:55:16.467[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 91 Succ: 76 Fail:0 Unfinished:15
+2026.09.16-21:55:21.468[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 141 Succ: 134 Fail:0 Unfinished:7
+2026.09.16-21:55:26.469[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 191 Succ: 176 Fail:0 Unfinished:15
+2026.09.16-21:55:31.471[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 241 Succ: 234 Fail:0 Unfinished:7
+2026.09.16-21:55:36.472[32m info [39m [caliper] [default-observer] 	[tps-10 Round 0 Transaction Info] - Submitted: 291 Succ: 276 Fail:0 Unfinished:15
+2026.09.16-21:55:39.191[32m info [39m [caliper] [worker-message-handler] 	Worker#0 finished Round#0
+2026.09.16-21:55:44.194[32m info [39m [caliper] [default-observer] 	Resetting txCount indicator count
+2026.09.16-21:55:44.196[32m info [39m [caliper] [report-builder] 	### Test result ###
+2026.09.16-21:55:44.200[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-10 | 301  | 0    | 10.0            | 2.46            | 0.16            | 1.23            | 9.5              |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-21:55:44.203[32m info [39m [caliper] [round-orchestrator] 	Finished round 1 (tps-10) in 31.718 seconds
+2026.09.16-21:55:44.204[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-21:55:44.204[32m info [39m [caliper] [round-orchestrator] 	Waiting 5 seconds for the next round...
+2026.09.16-21:55:49.205[32m info [39m [caliper] [round-orchestrator] 	Started round 2 (tps-20)
+2026.09.16-21:55:49.210[32m info [39m [caliper] [worker-message-handler] 	Preparing Worker#0 for Round#1
+2026.09.16-21:55:49.241[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 1 is starting...
+2026.09.16-21:55:49.243[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 1 is completed
+2026.09.16-21:55:49.243[32m info [39m [caliper] [worker-message-handler] 	Worker#0 prepared for Round#1
+2026.09.16-21:55:49.244[32m info [39m [caliper] [worker-orchestrator] 	1 workers prepared, progressing to test phase.
+2026.09.16-21:55:49.244[32m info [39m [caliper] [round-orchestrator] 	Monitors successfully started
+2026.09.16-21:55:49.244[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is starting Round#1
+2026.09.16-21:55:49.257[32m info [39m [caliper] [caliper-worker] 	Worker #0 starting workload loop
+2026.09.16-21:55:54.245[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 81 Succ: 47 Fail:0 Unfinished:34
+2026.09.16-21:55:59.246[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 181 Succ: 143 Fail:0 Unfinished:38
+2026.09.16-21:56:04.247[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 281 Succ: 207 Fail:0 Unfinished:74
+2026.09.16-21:56:09.248[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 381 Succ: 303 Fail:0 Unfinished:78
+2026.09.16-21:56:14.249[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 481 Succ: 367 Fail:0 Unfinished:114
+2026.09.16-21:56:19.250[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 581 Succ: 431 Fail:0 Unfinished:150
+2026.09.16-21:56:24.250[32m info [39m [caliper] [default-observer] 	[tps-20 Round 1 Transaction Info] - Submitted: 601 Succ: 527 Fail:0 Unfinished:74
+2026.09.16-21:56:29.147[32m info [39m [caliper] [worker-message-handler] 	Worker#0 finished Round#1
+2026.09.16-21:56:34.150[32m info [39m [caliper] [default-observer] 	Resetting txCount indicator count
+2026.09.16-21:56:34.150[32m info [39m [caliper] [report-builder] 	### Test result ###
+2026.09.16-21:56:34.151[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-20 | 601  | 0    | 20.0            | 9.26            | 0.14            | 4.78            | 15.5             |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-21:56:34.152[32m info [39m [caliper] [round-orchestrator] 	Finished round 2 (tps-20) in 38.888 seconds
+2026.09.16-21:56:34.152[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-21:56:34.152[32m info [39m [caliper] [round-orchestrator] 	Waiting 5 seconds for the next round...
+2026.09.16-21:56:39.153[32m info [39m [caliper] [round-orchestrator] 	Started round 3 (tps-40)
+2026.09.16-21:56:39.155[32m info [39m [caliper] [worker-message-handler] 	Preparing Worker#0 for Round#2
+2026.09.16-21:56:39.182[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 2 is starting...
+2026.09.16-21:56:39.183[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 2 is completed
+2026.09.16-21:56:39.183[32m info [39m [caliper] [worker-message-handler] 	Worker#0 prepared for Round#2
+2026.09.16-21:56:39.184[32m info [39m [caliper] [worker-orchestrator] 	1 workers prepared, progressing to test phase.
+2026.09.16-21:56:39.184[32m info [39m [caliper] [round-orchestrator] 	Monitors successfully started
+2026.09.16-21:56:39.185[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is starting Round#2
+2026.09.16-21:56:39.192[32m info [39m [caliper] [caliper-worker] 	Worker #0 starting workload loop
+2026.09.16-21:56:44.185[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 161 Succ: 63 Fail:0 Unfinished:98
+2026.09.16-21:56:49.186[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 361 Succ: 159 Fail:0 Unfinished:202
+2026.09.16-21:56:54.187[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 561 Succ: 223 Fail:0 Unfinished:338
+2026.09.16-21:56:59.188[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 761 Succ: 287 Fail:0 Unfinished:474
+2026.09.16-21:57:04.190[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 961 Succ: 383 Fail:0 Unfinished:578
+2026.09.16-21:57:09.191[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1161 Succ: 479 Fail:0 Unfinished:682
+2026.09.16-21:57:14.193[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 543 Fail:0 Unfinished:658
+2026.09.16-21:57:19.193[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 639 Fail:0 Unfinished:562
+2026.09.16-21:57:24.195[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 703 Fail:0 Unfinished:498
+2026.09.16-21:57:29.195[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 799 Fail:0 Unfinished:402
+2026.09.16-21:57:34.197[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 863 Fail:0 Unfinished:338
+2026.09.16-21:57:39.198[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 959 Fail:0 Unfinished:242
+2026.09.16-21:57:44.200[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 1023 Fail:0 Unfinished:178
+2026.09.16-21:57:49.201[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 1119 Fail:0 Unfinished:82
+2026.09.16-21:57:54.202[32m info [39m [caliper] [default-observer] 	[tps-40 Round 2 Transaction Info] - Submitted: 1201 Succ: 1201 Fail:0 Unfinished:0
+2026.09.16-21:57:55.121[32m info [39m [caliper] [worker-message-handler] 	Worker#0 finished Round#2
+2026.09.16-21:58:00.124[32m info [39m [caliper] [default-observer] 	Resetting txCount indicator count
+2026.09.16-21:58:00.125[32m info [39m [caliper] [report-builder] 	### Test result ###
+2026.09.16-21:58:00.127[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-40 | 1201 | 0    | 40.0            | 45.31           | 0.19            | 22.56           | 16.0             |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-21:58:00.127[32m info [39m [caliper] [round-orchestrator] 	Finished round 3 (tps-40) in 74.926 seconds
+2026.09.16-21:58:00.127[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-21:58:00.127[32m info [39m [caliper] [round-orchestrator] 	Waiting 5 seconds for the next round...
+2026.09.16-21:58:05.129[32m info [39m [caliper] [round-orchestrator] 	Started round 4 (tps-60)
+2026.09.16-21:58:05.132[32m info [39m [caliper] [worker-message-handler] 	Preparing Worker#0 for Round#3
+2026.09.16-21:58:05.154[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 3 is starting...
+2026.09.16-21:58:05.156[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 3 is completed
+2026.09.16-21:58:05.156[32m info [39m [caliper] [worker-message-handler] 	Worker#0 prepared for Round#3
+2026.09.16-21:58:05.157[32m info [39m [caliper] [worker-orchestrator] 	1 workers prepared, progressing to test phase.
+2026.09.16-21:58:05.157[32m info [39m [caliper] [round-orchestrator] 	Monitors successfully started
+2026.09.16-21:58:05.158[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is starting Round#3
+2026.09.16-21:58:05.171[32m info [39m [caliper] [caliper-worker] 	Worker #0 starting workload loop
+2026.09.16-21:58:10.159[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 241 Succ: 64 Fail:0 Unfinished:177
+2026.09.16-21:58:15.160[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 541 Succ: 160 Fail:0 Unfinished:381
+2026.09.16-21:58:20.160[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 841 Succ: 224 Fail:0 Unfinished:617
+2026.09.16-21:58:25.161[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1141 Succ: 320 Fail:0 Unfinished:821
+2026.09.16-21:58:30.162[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1441 Succ: 384 Fail:0 Unfinished:1057
+2026.09.16-21:58:35.164[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1741 Succ: 480 Fail:0 Unfinished:1261
+2026.09.16-21:58:40.164[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 544 Fail:0 Unfinished:1257
+2026.09.16-21:58:45.166[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 620 Fail:0 Unfinished:1181
+2026.09.16-21:58:50.167[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 704 Fail:0 Unfinished:1097
+2026.09.16-21:58:55.168[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 782 Fail:0 Unfinished:1019
+2026.09.16-21:59:00.170[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 864 Fail:0 Unfinished:937
+2026.09.16-21:59:05.171[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 960 Fail:0 Unfinished:841
+2026.09.16-21:59:10.172[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1024 Fail:0 Unfinished:777
+2026.09.16-21:59:15.174[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1120 Fail:0 Unfinished:681
+2026.09.16-21:59:20.173[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1184 Fail:0 Unfinished:617
+2026.09.16-21:59:25.177[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1280 Fail:0 Unfinished:521
+2026.09.16-21:59:30.177[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1344 Fail:0 Unfinished:457
+2026.09.16-21:59:35.179[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1408 Fail:0 Unfinished:393
+2026.09.16-21:59:40.180[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1504 Fail:0 Unfinished:297
+2026.09.16-21:59:45.180[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1600 Fail:0 Unfinished:201
+2026.09.16-21:59:50.180[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1664 Fail:0 Unfinished:137
+2026.09.16-21:59:55.182[32m info [39m [caliper] [default-observer] 	[tps-60 Round 3 Transaction Info] - Submitted: 1801 Succ: 1760 Fail:0 Unfinished:41
+2026.09.16-21:59:59.155[32m info [39m [caliper] [worker-message-handler] 	Worker#0 finished Round#3
+2026.09.16-22:00:04.158[32m info [39m [caliper] [default-observer] 	Resetting txCount indicator count
+2026.09.16-22:00:04.160[32m info [39m [caliper] [report-builder] 	### Test result ###
+2026.09.16-22:00:04.164[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-60 | 1801 | 0    | 60.0            | 83.03           | 0.46            | 41.27           | 16.0             |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-22:00:04.166[32m info [39m [caliper] [round-orchestrator] 	Finished round 4 (tps-60) in 112.983 seconds
+2026.09.16-22:00:04.166[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-22:00:04.166[32m info [39m [caliper] [round-orchestrator] 	Waiting 5 seconds for the next round...
+2026.09.16-22:00:09.167[32m info [39m [caliper] [round-orchestrator] 	Started round 5 (tps-80)
+2026.09.16-22:00:09.171[32m info [39m [caliper] [worker-message-handler] 	Preparing Worker#0 for Round#4
+2026.09.16-22:00:09.206[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 4 is starting...
+2026.09.16-22:00:09.208[32m info [39m [caliper] [caliper-worker] 	Info: worker 0 prepare test phase for round 4 is completed
+2026.09.16-22:00:09.208[32m info [39m [caliper] [worker-message-handler] 	Worker#0 prepared for Round#4
+2026.09.16-22:00:09.208[32m info [39m [caliper] [worker-orchestrator] 	1 workers prepared, progressing to test phase.
+2026.09.16-22:00:09.209[32m info [39m [caliper] [round-orchestrator] 	Monitors successfully started
+2026.09.16-22:00:09.209[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is starting Round#4
+2026.09.16-22:00:09.231[32m info [39m [caliper] [caliper-worker] 	Worker #0 starting workload loop
+2026.09.16-22:00:14.209[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 321 Succ: 64 Fail:0 Unfinished:257
+2026.09.16-22:00:19.212[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 721 Succ: 160 Fail:0 Unfinished:561
+2026.09.16-22:00:24.212[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 1121 Succ: 224 Fail:0 Unfinished:897
+2026.09.16-22:00:29.214[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 1521 Succ: 288 Fail:0 Unfinished:1233
+2026.09.16-22:00:34.214[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 1921 Succ: 384 Fail:0 Unfinished:1537
+2026.09.16-22:00:39.216[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2321 Succ: 480 Fail:0 Unfinished:1841
+2026.09.16-22:00:44.216[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 544 Fail:0 Unfinished:1857
+2026.09.16-22:00:49.217[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 640 Fail:0 Unfinished:1761
+2026.09.16-22:00:54.219[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 704 Fail:0 Unfinished:1697
+2026.09.16-22:00:59.220[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 800 Fail:0 Unfinished:1601
+2026.09.16-22:01:04.222[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 864 Fail:0 Unfinished:1537
+2026.09.16-22:01:09.223[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 960 Fail:0 Unfinished:1441
+2026.09.16-22:01:14.223[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1024 Fail:0 Unfinished:1377
+2026.09.16-22:01:19.224[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1120 Fail:0 Unfinished:1281
+2026.09.16-22:01:24.225[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1184 Fail:0 Unfinished:1217
+2026.09.16-22:01:29.226[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1280 Fail:0 Unfinished:1121
+2026.09.16-22:01:34.226[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1344 Fail:0 Unfinished:1057
+2026.09.16-22:01:39.228[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1440 Fail:0 Unfinished:961
+2026.09.16-22:01:44.228[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1504 Fail:0 Unfinished:897
+2026.09.16-22:01:49.229[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1600 Fail:0 Unfinished:801
+2026.09.16-22:01:54.231[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1664 Fail:0 Unfinished:737
+2026.09.16-22:01:59.232[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1760 Fail:0 Unfinished:641
+2026.09.16-22:02:04.233[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1824 Fail:0 Unfinished:577
+2026.09.16-22:02:09.235[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1920 Fail:0 Unfinished:481
+2026.09.16-22:02:14.235[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 1984 Fail:0 Unfinished:417
+2026.09.16-22:02:16.326[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1741
+2026.09.16-22:02:16.326[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.327[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1742
+2026.09.16-22:02:16.327[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1743
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1744
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1745
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1746
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1747
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1748
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1749
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174a
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174b
+2026.09.16-22:02:16.329[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174c
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174d
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174e
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x174f
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1750
+2026.09.16-22:02:16.330[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.331[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1751
+2026.09.16-22:02:16.331[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.331[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1752
+2026.09.16-22:02:16.331[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1753
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1754
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1755
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1756
+2026.09.16-22:02:16.332[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.333[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1757
+2026.09.16-22:02:16.333[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1758
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1759
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175a
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175b
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175c
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175d
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175e
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x175f
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.334[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1760
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1761
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1762
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1763
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1764
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1765
+2026.09.16-22:02:16.335[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1766
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1767
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1768
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1769
+2026.09.16-22:02:16.336[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176a
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176b
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176c
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176d
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176e
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x176f
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1770
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1771
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1772
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1773
+2026.09.16-22:02:16.337[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1774
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1775
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1776
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1777
+2026.09.16-22:02:16.338[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1778
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1779
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177a
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177b
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177c
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177d
+2026.09.16-22:02:16.339[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177e
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x177f
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1780
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1781
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1782
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1783
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1784
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1785
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1786
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1787
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1788
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1789
+2026.09.16-22:02:16.347[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178a
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178b
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178c
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178d
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.348[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178e
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x178f
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1790
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1791
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1792
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1793
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1794
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1795
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1796
+2026.09.16-22:02:16.349[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1797
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1798
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1799
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179a
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179b
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179c
+2026.09.16-22:02:16.350[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179d
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179e
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x179f
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a0
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a1
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a2
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a3
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.351[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a4
+2026.09.16-22:02:16.352[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:16.352[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a5
+2026.09.16-22:02:16.352[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.215[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a6
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a7
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a8
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17a9
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17aa
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ab
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ac
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ad
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ae
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17af
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b0
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b1
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b2
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b3
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b4
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b5
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b6
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b7
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b8
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17b9
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ba
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17bb
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17bc
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17bd
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17be
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17bf
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c0
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c1
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c2
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c3
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c4
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c5
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c6
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c7
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c8
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17c9
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ca
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17cb
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17cc
+2026.09.16-22:02:18.216[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17cd
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ce
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17cf
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d0
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d1
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d2
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d3
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d4
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d5
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d6
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d7
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d8
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17d9
+2026.09.16-22:02:18.217[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17da
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17db
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17dc
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17dd
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17de
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17df
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e0
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e1
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e2
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e3
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e4
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e5
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e6
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e7
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e8
+2026.09.16-22:02:18.218[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17e9
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ea
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17eb
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ec
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ed
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ee
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ef
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f0
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f1
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f2
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f3
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f4
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f5
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f6
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f7
+2026.09.16-22:02:18.219[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f8
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17f9
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17fa
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17fb
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17fc
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17fd
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17fe
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x17ff
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1800
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1801
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1802
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1803
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1804
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1805
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1806
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1807
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1808
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1809
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180a
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180b
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180c
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180d
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180e
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x180f
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1810
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1811
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1812
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1813
+2026.09.16-22:02:18.220[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1814
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1815
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1816
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1817
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1818
+2026.09.16-22:02:18.221[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1819
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181a
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181b
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181c
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181d
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181e
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x181f
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1820
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1821
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1822
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1823
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1824
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1825
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1826
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1827
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1828
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1829
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182a
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182b
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.222[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182c
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182d
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182e
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x182f
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1830
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1831
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1832
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1833
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1834
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1835
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1836
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1837
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1838
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1839
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183a
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183b
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183c
+2026.09.16-22:02:18.223[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183d
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183e
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x183f
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1840
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1841
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1842
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1843
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1844
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1845
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1846
+2026.09.16-22:02:18.224[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:19.238[32m info [39m [caliper] [default-observer] 	[tps-80 Round 4 Transaction Info] - Submitted: 2401 Succ: 2048 Fail:262 Unfinished:91
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1847
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1848
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1849
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.190[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184a
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184b
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184c
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184d
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184e
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x184f
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1850
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1851
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1852
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1853
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1854
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1855
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1856
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1857
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1858
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1859
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185a
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185b
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185c
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185d
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.191[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185e
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x185f
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1860
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1861
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1862
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1863
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1864
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1865
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1866
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1867
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1868
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1869
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186a
+2026.09.16-22:02:20.192[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186b
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186c
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186d
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186e
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x186f
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1870
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1871
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1872
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1873
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1874
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1875
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1876
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1877
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1878
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1879
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187a
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187b
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187c
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187d
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187e
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x187f
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1880
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1881
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1882
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1883
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1884
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1885
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.193[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1886
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1887
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1888
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1889
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188a
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188b
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188c
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188d
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188e
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x188f
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1890
+2026.09.16-22:02:20.194[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1891
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1892
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1893
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1894
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1895
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1896
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1897
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1898
+2026.09.16-22:02:20.195[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x1899
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189a
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189b
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189c
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189d
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189e
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x189f
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.196[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x18a0
+2026.09.16-22:02:20.197[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:20.197[31m error[39m [caliper] [ethereum-connector] 	Failed tx on registroDeBatches; calling method: registrarBatch; nonce: 0x18a1
+2026.09.16-22:02:20.197[31m error[39m [caliper] [ethereum-connector] 	Error: Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!
+2026.09.16-22:02:21.272[32m info [39m [caliper] [worker-message-handler] 	Worker#0 finished Round#4
+2026.09.16-22:02:26.274[32m info [39m [caliper] [default-observer] 	Resetting txCount indicator count
+2026.09.16-22:02:26.275[32m info [39m [caliper] [report-builder] 	### Test result ###
+2026.09.16-22:02:26.276[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-80 | 2048 | 353  | 80.0            | 101.89          | 0.53            | 51.15           | 18.3             |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-22:02:26.276[32m info [39m [caliper] [round-orchestrator] 	Finished round 5 (tps-80) in 131.041 seconds
+2026.09.16-22:02:26.276[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-22:02:26.277[32m info [39m [caliper] [report-builder] 	### All test results ###
+2026.09.16-22:02:26.278[32m info [39m [caliper] [report-builder] 	
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+| Name   | Succ | Fail | Send Rate (TPS) | Max Latency (s) | Min Latency (s) | Avg Latency (s) | Throughput (TPS) |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-10 | 301  | 0    | 10.0            | 2.46            | 0.16            | 1.23            | 9.5              |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-20 | 601  | 0    | 20.0            | 9.26            | 0.14            | 4.78            | 15.5             |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-40 | 1201 | 0    | 40.0            | 45.31           | 0.19            | 22.56           | 16.0             |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-60 | 1801 | 0    | 60.0            | 83.03           | 0.46            | 41.27           | 16.0             |
+|--------|------|------|-----------------|-----------------|-----------------|-----------------|------------------|
+| tps-80 | 2048 | 353  | 80.0            | 101.89          | 0.53            | 51.15           | 18.3             |
++--------+------+------+-----------------+-----------------+-----------------+-----------------+------------------+
+
+2026.09.16-22:02:26.285[32m info [39m [caliper] [report-builder] 	Generated report with path /Users/manubjb/Desktop/QBFT-network-docker/caliper-workspace/resultados/B-txpool-ajustado/rep2/report.html
+2026.09.16-22:02:26.285[32m info [39m [caliper] [monitor.js] 	Stopping all monitors
+2026.09.16-22:02:26.285[32m info [39m [caliper] [worker-orchestrator] 	Sending exit message to connected workers
+2026.09.16-22:02:26.286[32m info [39m [caliper] [round-orchestrator] 	Benchmark finished in 439.854 seconds. Total rounds: 5. Successful rounds: 5. Failed rounds: 0.
+2026.09.16-22:02:26.286[32m info [39m [caliper] [caliper-engine] 	Network configuration attribute "caliper.command.end" is not present, skipping end command
+2026.09.16-22:02:26.286[32m info [39m [caliper] [cli-launch-manager] 	Benchmark successfully finished!
+2026.09.16-22:02:26.286[32m info [39m [caliper] [worker-message-handler] 	Worker#0 is exiting
