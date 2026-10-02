@@ -1,0 +1,30 @@
+round,metrica,detalhe,rep1,rep2,n,media,desvio_padrao
+tps-10,succ,,301,301,2,301,0.0
+tps-10,fail,,0,0,2,0,0.0
+tps-10,send_rate_tps,,10.0,10.0,2,10.0,0.0
+tps-10,max_latency_s,,2.6,8.81,2,5.705,4.39113311116846
+tps-10,min_latency_s,,0.2,0.24,2,0.22,0.028284271247461888
+tps-10,avg_latency_s,,1.31,3.39,2,2.35,1.470782104868019
+tps-10,throughput_tps,,9.5,9.5,2,9.5,0.0
+tps-10,duracao_round_s,,31.716,31.617,2,31.6665,0.07000357133746835
+tps-10,capacidade_estimada_tps,,9.490477992180603,9.520194831894234,2,9.505336412037419,0.021012978876941972
+tps-20,succ,,601,601,2,601,0.0
+tps-20,fail,,0,0,2,0,0.0
+tps-20,send_rate_tps,,20.0,20.0,2,20.0,0.0
+tps-20,max_latency_s,,9.3,9.36,2,9.33,0.042426406871191945
+tps-20,min_latency_s,,0.14,0.23,2,0.185,0.06363961030678927
+tps-20,avg_latency_s,,4.74,4.85,2,4.795,0.07778174593051983
+tps-20,throughput_tps,,15.5,15.4,2,15.45,0.0707106781186545
+tps-20,duracao_round_s,,38.888,38.982,2,38.935,0.06646803743153631
+tps-20,capacidade_estimada_tps,,15.454638963176302,15.417372120465856,2,15.436005541821078,0.026351637193968904
+tps-40,succ,,320,328,2,324,5.656854249492381
+tps-40,fail,,881,873,2,877,5.656854249492381
+tps-40,send_rate_tps,,40.0,40.0,2,40.0,0.0
+tps-40,max_latency_s,,13.09,12.9,2,12.995000000000001,0.13435028842544366
+tps-40,min_latency_s,,0.43,0.38,2,0.405,0.03535533905932737
+tps-40,avg_latency_s,,6.47,6.19,2,6.33,0.19798989873223286
+tps-40,throughput_tps,,40.0,10.8,2,25.4,20.647518010647186
+tps-40,duracao_round_s,,30.102,110.876,2,70.489,57.115843143562195
+tps-40,capacidade_estimada_tps,,10.630522888844595,2.9582596774775425,2,6.794391283161069,5.425109343805721
+tps-40,falhas_por_tipo,Returned error: Transaction nonce is too distant from current sender nonce,881,872,2,876.5,6.363961030678928
+tps-40,falhas_por_tipo,"Transaction was not mined within 50 blocks, please make sure your transaction was properly sent. Be aware that it might still be mined!",0,1,2,0.5,0.7071067811865476

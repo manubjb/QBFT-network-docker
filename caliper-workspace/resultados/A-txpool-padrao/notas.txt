@@ -1,0 +1,209 @@
+data: 2026-10-01T11:57:44-03:00
+containers externos parados durante as 3 repetições
+comando: docker stop (sem remoção); religar com docker start ao final da Etapa 3
+lista:
+  alloy  (grafana/alloy:latest)
+  dockerproxy  (tecnativa/docker-socket-proxy)
+  grafana  (grafana/grafana:latest)
+  loki  (grafana/loki:latest)
+  qrcheck-dev-backend-1  (qrcheck-dev-backend)
+  qrcheck-dev-cache-1  (memcached:latest)
+  qrcheck-dev-db-1  (postgres:17)
+  qrcheck-dev-frontend-1  (qrcheck-dev-frontend)
+
+rep1 (registrado em 2026-10-01, após o término do benchmark):
+- tps-40: Fail = 873, sendo 871 "Returned error: Transaction nonce is too distant from current sender nonce"
+  e 2 "Transaction was not mined within 50 blocks, please make sure your transaction was properly sent.
+  Be aware that it might still be mined!" (nonces 0x4ed = 1261 e 0x4ee = 1262; log às 12:01:57.025).
+  Por isso a duração do round tps-40 foi 110,881 s. Decisão da autora: manter a rep1 e o método do
+  cenário B (capacidade = Succ / duração do round), sem trocar o denominador; o artigo usa do tps-40
+  apenas o percentual de rejeição.
+- Benchmark finalizado às 12:02:03.073 ("Benchmark successfully finished!"), mas o worker do Caliper
+  (processo "caliper launch worker", órfão) não encerrou. Encerrado com SIGTERM; o pipeline terminou às
+  2026-10-01T12:09:43-03:00. caliper.log não mudou com o encerramento (1895 linhas, mesmo SHA-256).
+
+Critério de validade (definido pela autora em 2026-10-01, após a rep1 original; verificado depois de
+cada repetição e aplicado a todas, inclusive à rep1 original):
+  "Uma repetição é válida se, nos blocos entre o deploy e o último bloco do tps-40, (i) nenhum bloco
+  foi fechado em rodada maior que 0 e (ii) nenhum validador importou blocos por sincronização
+  (PersistBlockTask)."
+  Operacionalização: rodada lida do extraData (RLP do QBFT) de cada bloco via eth_getBlockByNumber na
+  porta 8555, conferida com as linhas "Sequence=N, Round=R" dos logs; importação por sincronização =
+  linha "PersistBlockTask | Imported [empty] block #N" no docker logs de node1..node4 (linhas "Block N
+  is already imported" não contam como importação); último bloco do tps-40 = último bloco com
+  timestamp <= "Finished round (tps-40)" no caliper.log. Diagnóstico de cada execução em
+  diagnostico/<rep>.txt, gerado antes do reinício seguinte (a cadeia e os logs se perdem no down).
+  O protocolo do Caliper não muda: sem espera extra antes do Caliper, igual ao cenário B.
+
+EXCLUÍDA: rep1 original (início 2026-10-01T11:58:30-03:00), movida sem alterações (SHA-256 conferidos)
+para excluidas/rep1-transitorio-node1/. Diagnóstico: diagnostico/rep1-transitorio-node1.txt.
+Motivo: não atende ao critério.
+  (i) blocos 13, 15, 18 e 21 fechados na rodada 1 (11:58:33, 11:58:41, 11:58:51, 11:59:01; -0,4 s,
+      +7,6 s, +17,6 s e +27,6 s em relação ao início do tps-10), com intervalo de 6 s (2 s de período
+      + 4 s de requesttimeoutseconds). Nas alturas 15, 18 e 21 a vez de propor na rodada 0 era do
+      node1; o node2 propôs na rodada 1. Nenhum outro bloco em rodada > 0 até a altura 3757.
+  (ii) node1 importou os blocos 13 a 21 por sincronização (PersistBlockTask, "Peers: 1"), de
+      14:58:33 a 14:59:01 UTC, enquanto node2..node4 importavam pelo consenso; voltou ao consenso no
+      bloco 22. Às 11:58:06 (antes do deploy) o node1 tinha 4 peers; em 12:44 tinha 4 de novo.
+  Efeito medido: tps-10 com latência média de 3,81 s (máx. 7,01 s), contra 1,12 s na referência de
+  16/09 e 1,24 s no cenário B. tps-20 e tps-40 com blocos regulares de 2 s.
+  A causa da perda de peers do node1 não aparece nos logs em nível INFO.
+
+Execuções: no máximo 5 no total, contando a rep1 original (1ª execução, 1ª inválida). Leitura
+adotada: ao chegar a 2 execuções inválidas (incluindo a rep1 original), parar e consultar a autora.
+Falhas "Transaction was not mined within 50 blocks" no tps-40 não interrompem a série (decisão A);
+qualquer outro tipo de falha diferente de "nonce too distant" interrompe.
+
+A partir das novas repetições, o Caliper roda com o prefixo "caffeinate -is" (impede sono do sistema
+e por ociosidade; não altera o benchmark). Mac na tomada e com a tampa aberta. Às 12:11:23-12:26:35
+(após a rep1 original, fora de qualquer medição) o Mac dormiu por tampa fechada e a cadeia parou 901 s.
+Regra: se o processo do Caliper não encerrar em 60 s após "Benchmark successfully finished", o worker
+é encerrado com SIGTERM e o horário é registrado aqui.
+
+rep1: 'Benchmark successfully finished' às 16:26:02.275 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 49766 ) encerrado com SIGTERM às 2026-10-01T16:27:03-03:00.
+
+Execução 2 -> rep1 (início 2026-10-01T16:23:50-03:00): VÁLIDA (diagnostico/rep1.txt).
+
+rep2: 'Benchmark successfully finished' às 16:31:23.120 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 52737 ) encerrado com SIGTERM às 2026-10-01T16:32:24-03:00.
+
+EXCLUÍDA: execução 3 -> rep2 (início 2026-10-01T16:27:51-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep2-rodada1-bloco10/. Diagnóstico: diagnostico/rep2-rodada1-bloco10.txt
+(o registro "rep2: ... SIGTERM" acima refere-se a esta execução). Logs brutos dos 5 containers em
+diagnostico/logs/rep2-rodada1-bloco10/.
+Motivo: não atende ao critério (i): bloco 10 (16:27:59, cerca de 5,5 s após o início do tps-10)
+fechado na rodada 1, intervalo de 6 s. Proposer previsto na rodada 0 da altura 10: node3 (o bloco 9
+foi do node2); o node4 propôs na rodada 1. O node3 não registrou nada entre o bloco 9 (19:27:53 UTC)
+e "Stopping BFT mining coordinator while we are syncing" (19:28:03 UTC); voltou ao consenso
+("Starting BFT mining coordinator following sync") e produziu o bloco 13. Os blocos 10 a 12 foram
+importados pelo node3 sem nenhuma linha PersistBlockTask: a checagem (ii) por PersistBlockTask não
+detecta esse caminho de sincronização. Demais dados da execução: tps-10 com latência média de 1,82 s;
+tps-40 com 871 "nonce too distant" e 2 "not mined" (nonces 0x4ed = 1261 e 0x4ee = 1262,
+os mesmos da rep1 original).
+Com esta, são 2 execuções inválidas em 3: série interrompida para consulta à autora.
+
+Limitação da checagem (ii): os logs brutos dos containers da rep1 original e da rep1 nova (execução 2)
+não foram guardados antes do docker compose down seguinte e se perderam. Para a rep1 nova, a
+checagem (ii) foi feita só por PersistBlockTask (nenhuma linha) e não pode ser refeita para a
+assinatura "Stopping BFT mining coordinator while we are syncing". Evidência na cadeia da rep1
+nova: nenhum bloco em rodada > 0 e os 65 intervalos da janela iguais a 2 s.
+
+Decisões da autora (2026-10-01, após a execução 3):
+- Protocolo e critério de validade mantidos. A série continua até 3 repetições válidas ou 10
+  execuções no total (contando as 3 já feitas), o que vier primeiro, sem consulta por execuções
+  inválidas. Com 10 execuções e menos de 3 válidas, consolida-se com as válidas e informa-se n.
+  Interrompem a série (consulta à autora): falha no tps-20, tps-40 sem falhas, throughput do tps-20
+  fora de 14 a 17 TPS, ou o Mac dormindo.
+- Melhoria na DETECÇÃO do item (ii), sem mudança de critério: a partir da execução 4, também conta
+  como sincronização a linha "Stopping BFT mining coordinator while we are syncing" em qualquer
+  validador na janela (do bloco anterior ao deploy até o fim do tps-40); e os logs brutos dos 5
+  containers de cada execução são guardados em diagnostico/logs/ antes do docker compose down.
+  A rep1 (execução 2) foi verificada antes dessa melhoria.
+- A rep1 (execução 2) continua válida. Justificativa: o item (i) não acusou nada (nenhum bloco em
+  rodada > 0 e todos os 65 intervalos da janela iguais a 2 s), e qualquer saída de validador longa o
+  bastante para afetar a produção de blocos aparece como troca de rodada quando chega a vez dele de
+  propor.
+- diagnostico/rep2-rodada1-bloco10.txt (execução 3) foi regenerado com a detecção reforçada, antes do
+  down: acusa também o node3 em "while we are syncing" às 16:28:03.458 (voltou às 16:28:03.655).
+
+execução 4 (pasta rep2): 'Benchmark successfully finished' às 20:26:24.055 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 66984 ) encerrado com SIGTERM às 2026-10-01T20:27:25-03:00.
+
+Pausa entre a execução 3 e a decisão da autora: o Mac dormiu de 16:52:05 ("Clamshell Sleep") até
+cerca de 20:11 (vários Sleep/DarkWake no pmset). Nenhuma execução em andamento; a cadeia da execução 3
+já havia sido diagnosticada (janela até 16:31:23). Sem sono desde o início da execução 4 (20:22:15).
+
+Execução 4 -> rep2 (início 2026-10-01T20:22:52-03:00): VÁLIDA pelo critério (diagnostico/rep2.txt).
+  Observação, fora do critério: o rpcnode (não validador) registrou "Stopping BFT mining coordinator
+  while we are syncing" às 20:23:02.013 e "following sync" às 20:23:03.288 (sincronizou os blocos 12
+  a 14). Os blocos 12, 13 e 14 (20:22:58 a 20:23:02) saíram vazios com intervalos de 2 s, embora o
+  Caliper já tivesse submetido 40 transações; os nonces 11 a 42 entraram no bloco 15. Efeito: tps-10
+  com latência média de 3,39 s. tps-40 com 872 "nonce too distant" e 1 "not mined".
+  Registrado para decisão da autora na consolidação; o critério, que fala em validadores, não foi
+  alterado. A partir daqui o diagnóstico informa também o rpcnode, fora do veredito.
+
+execução 5 (pasta rep3): 'Benchmark successfully finished' às 20:31:51.244 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 71268 ) encerrado com SIGTERM às 2026-10-01T20:32:53-03:00.
+
+EXCLUÍDA: execução 5 -> rep3 (início 2026-10-01T20:29:40-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec5-rodada1-bloco11/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: (i) bloco 11 (20:29:52) fechado na rodada 1, intervalo de 6 s; proposer previsto na
+rodada 0 da altura 11: node4 (o bloco 10 foi do node3); o node1 propôs na rodada 1; e (ii) node4 "while we are syncing" às 20:29:54.430 (voltou às
+20:29:54.663). Dados: tps-10 com latência média de 1,99 s; tps-40 com 873 "nonce too distant".
+
+execução 6 (pasta rep3): 'Benchmark successfully finished' às 20:36:15.271 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 74692 ) encerrado com SIGTERM às 2026-10-01T20:37:16-03:00.
+
+EXCLUÍDA: execução 6 -> rep3 (início 2026-10-01T20:34:01-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec6-rodada2-bloco11/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: (i) bloco 11 (20:34:22) fechado na rodada 2, intervalo de 14 s (2 s + 4 s + 8 s
+de timeouts). Proposers previstos na altura 11: node4 (rodada 0) e node1 (rodada 1); o node2 propôs na
+rodada 2. Os 4 validadores registraram "Moved to round 2" às 20:34:22 e nenhum registrou "while we are
+syncing"; a causa das duas rodadas perdidas não aparece nos logs INFO. O rpcnode (fora do critério)
+registrou "while we are syncing" às 20:34:15.458 e voltou às 20:34:15.855. Dados: tps-10 com latência
+média de 9,06 s e throughput de 9,0 TPS; tps-40 com 873 "nonce too distant".
+
+execução 7 (pasta rep3): 'Benchmark successfully finished' às 20:40:44.546 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 78229 ) encerrado com SIGTERM às 2026-10-01T20:41:44-03:00.
+
+EXCLUÍDA: execução 7 -> rep3 (início 2026-10-01T20:38:31-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec7-rodada1-bloco11/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: (i) bloco 11 (20:38:43) fechado na rodada 1, intervalo de 6 s (proposer da
+rodada 0 previsto: node4, pois o bloco 10 foi do node3; o node1 propôs na rodada 1); (ii) node4 "while
+we are syncing" às 20:38:45.308 (voltou às 20:38:46.701) e PersistBlockTask isolados: node4 bloco 12
+(peers=3) e node3 bloco 24 (peers=4). Dados: tps-10 com latência média de 2,34 s; tps-40 com 882
+"nonce too distant". Neste caliper.log, "Benchmark successfully finished" é a última linha.
+
+execução 8 (pasta rep3): 'Benchmark successfully finished' às 20:46:22.268 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 81729 ) encerrado com SIGTERM às 2026-10-01T20:47:24-03:00.
+
+EXCLUÍDA: execução 8 -> rep3 (início 2026-10-01T20:42:49-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec8-rodada1-bloco11/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: (i) bloco 11 (20:43:06) fechado na rodada 1, intervalo de 12 s (proposer da
+rodada 0 previsto: node4, pois o bloco 10 foi do node3; o node1 propôs na rodada 1); (ii) node4 "while
+we are syncing" às 20:43:01.951 (voltou às 20:43:02.069). Dados: tps-10 com latência média de 6,09 s;
+tps-40 com 872 "nonce too distant" e 1 "not mined".
+
+execução 9 (pasta rep3): 'Benchmark successfully finished' às 20:50:52.236 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 86032 ) encerrado com SIGTERM às 2026-10-01T20:51:53-03:00.
+
+EXCLUÍDA: execução 9 -> rep3 (início 2026-10-01T20:48:40-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec9-sinc-node3/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: só o item (ii), pela detecção reforçada: node3 "while we are syncing" às
+20:48:54.577 (voltou às 20:48:55.260). Item (i) sem ocorrências (nenhum bloco em rodada > 0); um
+intervalo de 3 s (bloco 14, 20:48:55). Dados: tps-10 com latência média de 1,71 s; tps-40 com 873
+"nonce too distant".
+
+execução 10 (pasta rep3): 'Benchmark successfully finished' às 20:56:35.141 (hora do caliper.log); processo do Caliper
+ainda ativo 60 s depois. Worker (PID 89920 ) encerrado com SIGTERM às 2026-10-01T20:57:37-03:00.
+
+EXCLUÍDA: execução 10 -> rep3 (início 2026-10-01T20:53:01-03:00), movida sem alterações (SHA-256
+conferidos) para excluidas/rep3-exec10-rodada2-bloco12/; diagnóstico e logs brutos com o mesmo nome em
+diagnostico/. Motivo: (i) bloco 12 (20:53:19) fechado na rodada 2, intervalo de 14 s. O bloco 11 (deploy)
+foi do node4; proposers previstos na altura 12: node1 (rodada 0) e node2 (rodada 1); o node3 propôs na
+rodada 2. Nenhum validador registrou "while we are syncing". Dados: tps-10 com latência média de 7,12 s;
+tps-40 com 871 "nonce too distant" e 2 "not mined".
+
+FIM DA SÉRIE: 10 execuções (limite), 2 válidas (execução 2 -> rep1, execução 4 -> rep2) e 8 inválidas.
+Consolidação com n = 2, conforme a decisão da autora. Execuções inválidas e diagnósticos preservados em
+excluidas/ e diagnostico/; tabela por execução em execucoes.csv.
+
+Containers externos religados com docker start em 2026-10-01T20:59:34-03:00, após a consolidação (Etapa 3).
+
+Decisões da autora após a consolidação (2026-10-01):
+- O rpcnode não entra no critério de validade (não é validador). A rep2 (execução 4) continua válida.
+  O transitório do rpcnode na rep2 ("while we are syncing" às 20:23:02.013, blocos 12 a 14 vazios com
+  40 transações já submetidas) explica a latência média do tps-10 dela (3,39 s, contra 1,31 s na rep1)
+  e o desvio padrão de ± 1,47 s da latência média do tps-10 no resumo (média 2,35 s, n = 2).
+- resumo.csv mantido como gerado (throughput médio do tps-20 = 15,45, duas casas); o arredondamento
+  é decidido no artigo.
+- Scripts que geraram diagnostico/, execucoes.csv e conduziram as execuções 2 a 10, copiados sem
+  alteração para analise/: diag.py, execucoes.py, prep.sh, run.sh e pos.sh.
+- Copiados também sem alteração para analise/ os auxiliares usados nas execuções 2 a 10: rpc.sh
+  (consultas JSON-RPC à porta 8555, usado por prep.sh e pos.sh), checks.py (sinais de parada e
+  conferência do nonce, usado por pos.sh) e excluir.sh (move uma execução inválida para excluidas/,
+  com diagnóstico e logs, conferindo SHA-256).
+- Portabilidade: prep.sh, run.sh e pos.sh (e também excluir.sh) usam caminhos absolutos da máquina
+  original (/Users/manubjb/Desktop/QBFT-network-docker/...) e precisam ser ajustados para rodar em
+  outra máquina. Mantidos sem alteração para preservar exatamente o que foi executado.

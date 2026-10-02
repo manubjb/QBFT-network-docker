@@ -1,0 +1,148 @@
+Diagnóstico de blocos: rep2 (execução 4)
+gerado em 2026-10-01T20:28:57-03:00 a partir de eth_getBlockByNumber (rpcnode, porta 8555), docker logs dos validadores e resultados/A-txpool-padrao/rep2/caliper.log
+
+Critério: Uma repetição é válida se, nos blocos entre o deploy e o último bloco do tps-40, (i) nenhum bloco foi fechado em rodada maior que 0 e (ii) nenhum validador importou blocos por sincronização (PersistBlockTask).
+
+Janela avaliada
+- deploy (nonce 0 do remetente): bloco 10 (20:22:54); 'Deployed contract' no log às 20:22:54.232
+- último bloco do tps-40: bloco 115 (20:26:24), último com timestamp <= 'Finished round (tps-40)' às 20:26:24.051
+- último bloco com transação do remetente: 67; altura atual da cadeia: 191
+- tps-10: 20:22:54.479 a 20:23:32.139
+- tps-20: 20:23:37.140 a 20:24:22.145
+- tps-40: 20:24:27.146 a 20:26:24.051
+
+(i) Blocos fechados em rodada > 0 (rodada lida do extraData de cada bloco)
+- nenhum
+  conferência nos logs (linhas 'Sequence=N, Round=R' com R > 0 na janela): nenhuma
+
+(ii) Importações por sincronização (PersistBlockTask 'Imported ... block #N') na janela, por validador
+- node1: nenhuma
+- node2: nenhuma
+- node3: nenhuma
+- node4: nenhuma
+  informativo, não é importação: linhas 'Block N is already imported' na janela: node1=4, node2=6, node3=16, node4=3
+(ii, detecção reforçada a partir da execução 4) linhas 'Stopping BFT mining coordinator while we are syncing' / 'following sync' entre 20:22:52 (bloco 9) e 20:26:24, por validador
+- node1: nenhuma
+- node2: nenhuma
+- node3: nenhuma
+- node4: nenhuma
+  informativo, fora da janela: nenhuma
+  informativo, fora do critério (o rpcnode não é validador), rpcnode na janela: 20:23:02.013 parou (while we are syncing); 20:23:03.288 voltou (following sync)
+
+Intervalos entre blocos na janela (Δ até o bloco anterior)
+- tps-10: blocos 10 a 29, 20 intervalos; = 2 s: 20; > 2 s: 0; < 2 s: 0; maior: 2 s
+- tps-20: blocos 32 a 54, 23 intervalos; = 2 s: 23; > 2 s: 0; < 2 s: 0; maior: 2 s
+- tps-40: blocos 57 a 115, 59 intervalos; = 2 s: 59; > 2 s: 0; < 2 s: 0; maior: 2 s
+- fora de round: blocos 30, 31, 55, 56, 4 intervalos; = 2 s: 4; > 2 s: 0; < 2 s: 0; maior: 2 s
+- janela inteira: 106 intervalos; diferentes de 2 s: nenhum
+
+VEREDITO: VÁLIDA
+
+Blocos da janela
+bloco | hora     | round         | Δ (s) | txs | gás (% do limite) | rodada | proposer
+   10 | 20:22:54 | tps-10        |     2 |   1 |             19.2% |      0 | node3
+   11 | 20:22:56 | tps-10        |     2 |  10 |             30.5% |      0 | node4
+   12 | 20:22:58 | tps-10        |     2 |   0 |              0.0% |      0 | node1
+   13 | 20:23:00 | tps-10        |     2 |   0 |              0.0% |      0 | node2
+   14 | 20:23:02 | tps-10        |     2 |   0 |              0.0% |      0 | node3
+   15 | 20:23:04 | tps-10        |     2 |  32 |             96.6% |      0 | node4
+   16 | 20:23:06 | tps-10        |     2 |  32 |             96.6% |      0 | node1
+   17 | 20:23:08 | tps-10        |     2 |  32 |             96.6% |      0 | node2
+   18 | 20:23:10 | tps-10        |     2 |  32 |             96.6% |      0 | node3
+   19 | 20:23:12 | tps-10        |     2 |  32 |             96.6% |      0 | node4
+   20 | 20:23:14 | tps-10        |     2 |  25 |             75.5% |      0 | node1
+   21 | 20:23:16 | tps-10        |     2 |  20 |             60.4% |      0 | node2
+   22 | 20:23:18 | tps-10        |     2 |  18 |             54.3% |      0 | node3
+   23 | 20:23:20 | tps-10        |     2 |  22 |             66.4% |      0 | node4
+   24 | 20:23:22 | tps-10        |     2 |  20 |             60.4% |      0 | node1
+   25 | 20:23:24 | tps-10        |     2 |  20 |             60.4% |      0 | node2
+   26 | 20:23:26 | tps-10        |     2 |   6 |             18.1% |      0 | node3
+   27 | 20:23:28 | tps-10        |     2 |   0 |              0.0% |      0 | node4
+   28 | 20:23:30 | tps-10        |     2 |   0 |              0.0% |      0 | node1
+   29 | 20:23:32 | tps-10        |     2 |   0 |              0.0% |      0 | node2
+   30 | 20:23:34 | fora de round |     2 |   0 |              0.0% |      0 | node3
+   31 | 20:23:36 | fora de round |     2 |   0 |              0.0% |      0 | node4
+   32 | 20:23:38 | tps-20        |     2 |  15 |             45.3% |      0 | node1
+   33 | 20:23:40 | tps-20        |     2 |  32 |             96.6% |      0 | node2
+   34 | 20:23:42 | tps-20        |     2 |  32 |             96.6% |      0 | node3
+   35 | 20:23:44 | tps-20        |     2 |  32 |             96.6% |      0 | node4
+   36 | 20:23:46 | tps-20        |     2 |  32 |             96.6% |      0 | node1
+   37 | 20:23:48 | tps-20        |     2 |  32 |             96.6% |      0 | node2
+   38 | 20:23:50 | tps-20        |     2 |  32 |             96.6% |      0 | node3
+   39 | 20:23:52 | tps-20        |     2 |  32 |             96.6% |      0 | node4
+   40 | 20:23:54 | tps-20        |     2 |  32 |             96.6% |      0 | node1
+   41 | 20:23:56 | tps-20        |     2 |  32 |             96.6% |      0 | node2
+   42 | 20:23:58 | tps-20        |     2 |  32 |             96.6% |      0 | node3
+   43 | 20:24:00 | tps-20        |     2 |  32 |             96.6% |      0 | node4
+   44 | 20:24:02 | tps-20        |     2 |  32 |             96.6% |      0 | node1
+   45 | 20:24:04 | tps-20        |     2 |  32 |             96.6% |      0 | node2
+   46 | 20:24:06 | tps-20        |     2 |  32 |             96.6% |      0 | node3
+   47 | 20:24:08 | tps-20        |     2 |  32 |             96.6% |      0 | node4
+   48 | 20:24:10 | tps-20        |     2 |  32 |             96.6% |      0 | node1
+   49 | 20:24:12 | tps-20        |     2 |  32 |             96.6% |      0 | node2
+   50 | 20:24:14 | tps-20        |     2 |  32 |             96.6% |      0 | node3
+   51 | 20:24:16 | tps-20        |     2 |  10 |             30.2% |      0 | node4
+   52 | 20:24:18 | tps-20        |     2 |   0 |              0.0% |      0 | node1
+   53 | 20:24:20 | tps-20        |     2 |   0 |              0.0% |      0 | node2
+   54 | 20:24:22 | tps-20        |     2 |   0 |              0.0% |      0 | node3
+   55 | 20:24:24 | fora de round |     2 |   0 |              0.0% |      0 | node4
+   56 | 20:24:26 | fora de round |     2 |   0 |              0.0% |      0 | node1
+   57 | 20:24:28 | tps-40        |     2 |  32 |             96.6% |      0 | node2
+   58 | 20:24:30 | tps-40        |     2 |  32 |             96.6% |      0 | node3
+   59 | 20:24:32 | tps-40        |     2 |  32 |             96.6% |      0 | node4
+   60 | 20:24:34 | tps-40        |     2 |  32 |             96.6% |      0 | node1
+   61 | 20:24:36 | tps-40        |     2 |  32 |             96.6% |      0 | node2
+   62 | 20:24:38 | tps-40        |     2 |  32 |             96.6% |      0 | node3
+   63 | 20:24:40 | tps-40        |     2 |  32 |             96.6% |      0 | node4
+   64 | 20:24:42 | tps-40        |     2 |  32 |             96.6% |      0 | node1
+   65 | 20:24:44 | tps-40        |     2 |  32 |             96.6% |      0 | node2
+   66 | 20:24:46 | tps-40        |     2 |  32 |             96.6% |      0 | node3
+   67 | 20:24:48 | tps-40        |     2 |   8 |             24.1% |      0 | node4
+   68 | 20:24:50 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   69 | 20:24:52 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   70 | 20:24:54 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   71 | 20:24:56 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   72 | 20:24:58 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   73 | 20:25:00 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   74 | 20:25:02 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   75 | 20:25:04 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   76 | 20:25:06 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   77 | 20:25:08 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   78 | 20:25:10 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   79 | 20:25:12 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   80 | 20:25:14 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   81 | 20:25:16 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   82 | 20:25:18 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   83 | 20:25:20 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   84 | 20:25:22 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   85 | 20:25:24 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   86 | 20:25:26 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   87 | 20:25:28 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   88 | 20:25:30 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   89 | 20:25:32 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   90 | 20:25:34 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   91 | 20:25:36 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   92 | 20:25:38 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   93 | 20:25:40 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   94 | 20:25:42 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   95 | 20:25:44 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+   96 | 20:25:46 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+   97 | 20:25:48 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+   98 | 20:25:50 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+   99 | 20:25:52 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+  100 | 20:25:54 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+  101 | 20:25:56 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+  102 | 20:25:58 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+  103 | 20:26:00 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+  104 | 20:26:02 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+  105 | 20:26:04 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+  106 | 20:26:06 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+  107 | 20:26:08 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+  108 | 20:26:10 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+  109 | 20:26:12 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+  110 | 20:26:14 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+  111 | 20:26:16 | tps-40        |     2 |   0 |              0.0% |      0 | node4
+  112 | 20:26:18 | tps-40        |     2 |   0 |              0.0% |      0 | node1
+  113 | 20:26:20 | tps-40        |     2 |   0 |              0.0% |      0 | node2
+  114 | 20:26:22 | tps-40        |     2 |   0 |              0.0% |      0 | node3
+  115 | 20:26:24 | tps-40        |     2 |   0 |              0.0% |      0 | node4
