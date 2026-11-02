@@ -1,0 +1,84 @@
+{
+  "completa": true,
+  "falha": null,
+  "ancorado_em": "2026-11-02T19:20:08.940Z",
+  "rede": {
+    "chainId": 1338,
+    "hashBloco0": "0xc1732a36ec599abab973631cf0c8a1134f042d9e05c44d7a87209f9f4d50af78",
+    "contrato": "0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0",
+    "rpc": "http://127.0.0.1:9545"
+  },
+  "conta": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
+  "arquivos_sha256": {
+    "certificado.json": "dd545517dea32774ebf46b2acf08d1bf7974f673d1419adc868395072b316169",
+    "checkins.json": "b898abc150a2c1939c984a31fc3d94ad393d7bf6b15bafeddd9fbe35dd0017fc"
+  },
+  "regra_atividades": {
+    "ok": true,
+    "aplicavel": true,
+    "atividades": [
+      {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "nome": "Palestra: IA & Ética",
+        "checkins_do_titular": 1,
+        "ok": true
+      },
+      {
+        "id": "ffffffff-0000-4000-8000-000000000001",
+        "nome": "Oficina de React",
+        "checkins_do_titular": 1,
+        "ok": true
+      }
+    ]
+  },
+  "certificado": {
+    "certificado_id": "0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a",
+    "canonico": "{\"atividades\":[{\"carga_horaria_minutos\":120,\"id\":\"00000000-0000-4000-8000-000000000002\",\"nome\":\"Palestra: IA & Ética\"},{\"carga_horaria_minutos\":90,\"id\":\"ffffffff-0000-4000-8000-000000000001\",\"nome\":\"Oficina de React\"}],\"carga_horaria_minutos\":210,\"certificado_id\":\"0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a\",\"emitido_em\":\"2026-10-24T14:32:07.123456Z\",\"emitido_por\":\"b0000000-0000-4000-8000-000000000002\",\"evento_id\":\"a0000000-0000-4000-8000-000000000171\",\"evento_nome\":\"JACITEC 2026 — Jornada \\\"Científica\\\"\",\"modo_carga_horaria\":\"SOMA_ATIVIDADES\",\"nome_titular\":\"José da Conceição Ñúñez\",\"participante\":\"b0000000-0000-4000-8000-000000000001\",\"substitui\":null,\"tipo\":\"certificado\",\"v\":1}",
+    "sha256": "591c3274dc654abc0a6748456cc50293f77a3206369a67e95573a918d3e8306b",
+    "id_preimagem": "certificado:0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a",
+    "id": "0x2b21d6c002d01a357402d7a94359425dffa269e2ffac2265a42ac8e0b717a932",
+    "tamanho": 1,
+    "tx": "0x3f1aa66c990e41daba545cac147d94d4c0270545fba99fa8eae5d68699cf37ea",
+    "bloco": 273,
+    "hashBloco": "0xcab4fbb395892e3ff037eeada2a09d9b251aacbbe9e3066d5c124bd735f42bee",
+    "status": true,
+    "gasUsed": 158953,
+    "onchain": {
+      "existe": true,
+      "fingerprint": "0x591c3274dc654abc0a6748456cc50293f77a3206369a67e95573a918d3e8306b",
+      "registradoEm": 1793647206,
+      "tamanho": 1,
+      "registradoPor": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57"
+    }
+  },
+  "checkins": {
+    "semente": "QRCHECK-DEMO-CHECKINS-v1",
+    "h0": "9091d0313ae44aab5cabcf11cce52927633b476bed395c7ab36b0b01b99a5a12",
+    "itens": [
+      {
+        "canonico": "{\"atividade_id\":\"00000000-0000-4000-8000-000000000002\",\"evento_id\":\"a0000000-0000-4000-8000-000000000171\",\"feito_por\":null,\"horario_checkin\":\"2026-10-24T08:57:41.204813Z\",\"participante\":\"b0000000-0000-4000-8000-000000000001\",\"tipo\":\"checkin\"}",
+        "h": "80075c0f41c6708c418fd1a8545e902b7297ecfe7c3b8bb79fea994b89c556b6"
+      },
+      {
+        "canonico": "{\"atividade_id\":\"ffffffff-0000-4000-8000-000000000001\",\"evento_id\":\"a0000000-0000-4000-8000-000000000171\",\"feito_por\":\"b0000000-0000-4000-8000-000000000002\",\"horario_checkin\":\"2026-10-24T13:58:09.771120Z\",\"participante\":\"b0000000-0000-4000-8000-000000000001\",\"tipo\":\"checkin\"}",
+        "h": "8a9e3e3284d31b50e05c15151a83dafadc2e9558d634b1a0e83a45dcab7b4aaa"
+      }
+    ],
+    "fingerprint": "8a9e3e3284d31b50e05c15151a83dafadc2e9558d634b1a0e83a45dcab7b4aaa",
+    "tamanho": 2,
+    "id_preimagem": "checkins:0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a",
+    "id": "0xa12850d00d4579055a036f4ae40ba93b124efd46aa279f3c37d076dbe7e37c7c",
+    "tx": "0xd42fd65d13979b8e68dbbdd30d2b4fd82c3efd9c8b87d20ac8da9f21f09dfe9c",
+    "bloco": 274,
+    "hashBloco": "0xea04b460a2143be034bef606595109a6b51ea6359f1001be6ffb76d47f9dfd2b",
+    "status": true,
+    "gasUsed": 141853,
+    "onchain": {
+      "existe": true,
+      "fingerprint": "0x8a9e3e3284d31b50e05c15151a83dafadc2e9558d634b1a0e83a45dcab7b4aaa",
+      "registradoEm": 1793647208,
+      "tamanho": 2,
+      "registradoPor": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57"
+    }
+  }
+}

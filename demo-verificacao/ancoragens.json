@@ -1,0 +1,30 @@
+[
+  {
+    "certificado_id": "0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a",
+    "pasta": "demo-verificacao/exemplo",
+    "completa": true,
+    "ancorado_em": "2026-11-02T19:20:08.940Z",
+    "rede": {
+      "chainId": 1338,
+      "hashBloco0": "0xc1732a36ec599abab973631cf0c8a1134f042d9e05c44d7a87209f9f4d50af78",
+      "contrato": "0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0",
+      "rpc": "http://127.0.0.1:9545"
+    },
+    "certificado": {
+      "id": "0x2b21d6c002d01a357402d7a94359425dffa269e2ffac2265a42ac8e0b717a932",
+      "sha256": "591c3274dc654abc0a6748456cc50293f77a3206369a67e95573a918d3e8306b",
+      "tamanho": 1,
+      "tx": "0x3f1aa66c990e41daba545cac147d94d4c0270545fba99fa8eae5d68699cf37ea",
+      "bloco": 273,
+      "status": true
+    },
+    "checkins": {
+      "id": "0xa12850d00d4579055a036f4ae40ba93b124efd46aa279f3c37d076dbe7e37c7c",
+      "fingerprint": "8a9e3e3284d31b50e05c15151a83dafadc2e9558d634b1a0e83a45dcab7b4aaa",
+      "tamanho": 2,
+      "tx": "0xd42fd65d13979b8e68dbbdd30d2b4fd82c3efd9c8b87d20ac8da9f21f09dfe9c",
+      "bloco": 274,
+      "status": true
+    }
+  }
+]
