@@ -34,3 +34,6 @@ caliper-workspace/resultados/
 
 # Demonstração de verificação: dados reais, nunca versionar
 demo-verificacao/dados/
+
+# Demonstração: chaves e estado da instância persistente qbft-demo
+demo-verificacao/rede/nodes/

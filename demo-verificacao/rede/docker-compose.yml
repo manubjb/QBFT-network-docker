@@ -1,0 +1,135 @@
+# Instância persistente da demonstração (fora do escopo do artigo).
+# Separada da rede do benchmark: outro projeto do Compose, outros nomes de
+# container, outra sub-rede, outro chainId (1338) e dados em ./nodes/
+# (fora de nodes/ da raiz, que o prep.sh limpa).
+# RPC exposto só no localhost. Pare esta instância antes de rodar o benchmark.
+#
+#   docker compose -f demo-verificacao/rede/docker-compose.yml up -d
+#   docker compose -f demo-verificacao/rede/docker-compose.yml stop
+name: qbft-demo
+
+x-besu-validador: &validador
+  image: hyperledger/besu:26.6.0
+  depends_on:
+    - node1
+
+services:
+  node1:
+    image: hyperledger/besu:26.6.0
+    container_name: qbft-demo-node1
+    volumes:
+      - ./nodes/node-1/data:/data
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      qbft-demo:
+        ipv4_address: 172.31.0.11
+
+  node2:
+    <<: *validador
+    container_name: qbft-demo-node2
+    volumes:
+      - ./nodes/node-2/data:/data
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.31.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      qbft-demo:
+        ipv4_address: 172.31.0.12
+
+  node3:
+    <<: *validador
+    container_name: qbft-demo-node3
+    volumes:
+      - ./nodes/node-3/data:/data
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.31.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      qbft-demo:
+        ipv4_address: 172.31.0.13
+
+  node4:
+    <<: *validador
+    container_name: qbft-demo-node4
+    volumes:
+      - ./nodes/node-4/data:/data
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --node-private-key-file=/data/key
+      - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.31.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
+      - --rpc-http-api=ETH,NET,QBFT
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    networks:
+      qbft-demo:
+        ipv4_address: 172.31.0.14
+
+  rpcnode:
+    <<: *validador
+    container_name: qbft-demo-rpcnode
+    volumes:
+      - ./nodes/rpcnode/data:/data
+      - ./genesis.json:/genesis.json:ro
+    command:
+      - --data-path=/data
+      - --genesis-file=/genesis.json
+      - --bootnodes=enode://${BOOTNODE_PUBLIC_KEY}@172.31.0.11:30303
+      - --rpc-http-enabled
+      - --rpc-http-host=0.0.0.0
+      - --rpc-http-api=ETH,NET,QBFT,WEB3
+      - --rpc-ws-enabled
+      - --rpc-ws-host=0.0.0.0
+      - --rpc-ws-api=ETH,NET,QBFT,WEB3
+      - --host-allowlist=*
+      - --rpc-http-cors-origins=all
+      - --nat-method=DOCKER
+      - --p2p-port=30303
+    ports:
+      - "127.0.0.1:9545:8545"
+      - "127.0.0.1:9546:8546"
+    networks:
+      qbft-demo:
+        ipv4_address: 172.31.0.15
+
+networks:
+  qbft-demo:
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
