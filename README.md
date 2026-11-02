@@ -2,6 +2,22 @@
 
 Rede blockchain permissionada local usando Hyperledger Besu, consenso QBFT e Docker Compose.
 
+## Versão citada no artigo
+
+A tag `latinoware2026` é a versão citada como referência [14] no artigo publicado no Latin Science 2026. O nome da tag foi mantido para não quebrar a citação.
+
+Os resultados do cenário A (Tabela II do artigo) estão em [`caliper-workspace/resultados/A-txpool-padrao/`](caliper-workspace/resultados/A-txpool-padrao/). Foram dez execuções; a vazão no round de 20 TPS ficou entre 15,3 e 15,5 TPS em todas. A latência reportada na Tabela II considera apenas as execuções que atenderam ao critério estrito de regime estável de consenso, registrado como "critério de validade" em `notas.txt`.
+
+- `execucoes.csv`: as dez execuções, com as métricas de cada uma e o resultado da verificação do critério;
+- `notas.txt`: critério de regime estável e registro das decisões durante a série;
+- `resumo.csv`: média e desvio-padrão das execuções em regime estável, fonte dos valores da Tabela II;
+- `rep1/` e `rep2/`: as execuções em regime estável;
+- `excluidas/`: as execuções em que houve transitório nos validadores no início da carga;
+- `diagnostico/`: o diagnóstico de cada execução;
+- `painel.html`: visualização das dez execuções.
+
+A validação funcional com os dados reais da JACITEC 2025 está no repositório [manubjb/QBFT-Network](https://github.com/manubjb/QBFT-Network) (referência [13]).
+
 ## Objetivo
 
 
