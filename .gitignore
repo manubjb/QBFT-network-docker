@@ -31,3 +31,6 @@ nodes/**/data/besu.networks
 .idea/
 caliper-workspace/report.html
 caliper-workspace/resultados/
+
+# Demonstração de verificação: dados reais, nunca versionar
+demo-verificacao/dados/
