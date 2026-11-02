@@ -1,0 +1,20 @@
+{
+  "rede": "qbft-demo (demo-verificacao/rede/docker-compose.yml)",
+  "rpc": "http://127.0.0.1:9545",
+  "chainId": 1338,
+  "hashBloco0": "0xc1732a36ec599abab973631cf0c8a1134f042d9e05c44d7a87209f9f4d50af78",
+  "contrato": "RegistroDeBatches",
+  "endereco": "0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0",
+  "blocoDeploy": 35,
+  "hashBlocoDeploy": "0x4a7cb4874c655a6cc339ef6d0a604f6da8a7da6b513525fd5715a7117bdef84e",
+  "txDeploy": "0x82d2adf6efde93c73722322fd1cd3e0a7c92ad5ed2fb7dcdb9555f6452aff094",
+  "contaDeploy": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
+  "nonceDeploy": 0,
+  "artefato": "caliper-workspace/networks/contracts/RegistroDeBatches.json",
+  "artefatoSha256": "e434ba338e518963cb131fe348f3353b6453331e0f5888f373ce4492cae4ca3d",
+  "codigoOnChainIgualAoDeployedBytecode": true,
+  "commit": "136b35319038b0c32c15f169fa2666e8d7a0ed7c",
+  "branch": "demo/verificacao-certificado",
+  "arvoreComAlteracoesNaoCommitadas": false,
+  "dataDeploy": "2026-11-02T19:12:11.348Z"
+}
