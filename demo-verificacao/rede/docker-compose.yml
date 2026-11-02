@@ -117,8 +117,8 @@ services:
       - --rpc-ws-enabled
       - --rpc-ws-host=0.0.0.0
       - --rpc-ws-api=ETH,NET,QBFT,WEB3
-      - --host-allowlist=*
-      - --rpc-http-cors-origins=all
+      - --host-allowlist=localhost,127.0.0.1
+      - --rpc-http-cors-origins=null,http://127.0.0.1:8765
       - --nat-method=DOCKER
       - --p2p-port=30303
     ports:

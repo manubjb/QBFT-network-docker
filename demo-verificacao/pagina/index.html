@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<!-- Nada sai do navegador além das consultas JSON-RPC ao nó local. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src http://127.0.0.1:* http://localhost:*; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Verificação de certificado · demonstração</title>
+<style>
+:root {
+  --verde: #15803d; --verde-forte: #166534; --verde-suave: #dcfce7; --verde-borda: #86efac;
+  --fundo: #f4f8f5; --superficie: #ffffff; --texto: #1a2e22; --texto-suave: #4b5f53; --borda: #d5e2d9;
+  --vermelho: #b91c1c; --vermelho-suave: #fee2e2; --ambar: #92400e; --ambar-suave: #fef3c7;
+  --aviso: #fff7d6; --aviso-borda: #e9c46a; --marca: #fecaca; --marca-texto: #7f1d1d;
+  --raio: 14px; --raio-p: 9px; --sombra: 0 1px 2px rgb(0 0 0 / .05), 0 4px 14px rgb(0 0 0 / .05);
+  --foco: #2563eb;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --verde: #4ade80; --verde-forte: #86efac; --verde-suave: #12301e; --verde-borda: #1f6b3a;
+    --fundo: #0e1511; --superficie: #16201a; --texto: #e3eee7; --texto-suave: #a3b8ab; --borda: #2a3a30;
+    --vermelho: #f87171; --vermelho-suave: #3b1616; --ambar: #fbbf24; --ambar-suave: #3a2a0a;
+    --aviso: #33290b; --aviso-borda: #7a6220; --marca: #7f1d1d; --marca-texto: #fee2e2;
+    --sombra: none; --foco: #93c5fd;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fundo); color: var(--texto);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--verde-forte); }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; border-radius: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.aviso-fixo {
+  position: sticky; top: 0; z-index: 10; margin: 0; padding: .55rem 1rem;
+  background: var(--aviso); border-bottom: 1px solid var(--aviso-borda); font-size: .9rem; text-align: center;
+}
+.aviso-fixo strong { font-weight: 700; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+header.topo { display: flex; align-items: center; gap: .8rem; margin: .5rem 0 1.25rem; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px; background: var(--verde); color: var(--superficie);
+  display: grid; place-items: center; font-weight: 800; font-size: 1.05rem; flex: none;
+}
+@media (prefers-color-scheme: dark) { .logo { color: #0e1511; } }
+header.topo h1 { font-size: 1.45rem; line-height: 1.2; margin: 0; }
+header.topo p { margin: .1rem 0 0; color: var(--texto-suave); font-size: .95rem; }
+
+.cartao {
+  background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio);
+  box-shadow: var(--sombra); padding: 1.1rem 1.2rem; margin: 0 0 1rem;
+}
+.cartao > h2 { font-size: 1.1rem; margin: 0 0 .75rem; }
+.cartao > h2 .sub { font-weight: 400; color: var(--texto-suave); font-size: .9rem; }
+
+label { font-weight: 600; display: block; margin-bottom: .3rem; }
+input[type=text], input[type=number], select {
+  font: inherit; color: inherit; background: var(--fundo); border: 1px solid var(--borda);
+  border-radius: var(--raio-p); padding: .55rem .7rem; width: 100%; min-width: 0;
+}
+input[type=text].mono, .mono { font-family: var(--mono); font-size: .92rem; }
+input[type=file] { font: inherit; max-width: 100%; }
+button {
+  font: inherit; font-weight: 600; border-radius: var(--raio-p); padding: .55rem 1rem; cursor: pointer;
+  border: 1px solid var(--verde); background: var(--superficie); color: var(--verde-forte);
+}
+button.primario { background: var(--verde); color: #fff; }
+@media (prefers-color-scheme: dark) { button.primario { color: #0e1511; } }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.linha { display: flex; gap: .6rem; flex-wrap: wrap; align-items: end; }
+.linha > .cresce { flex: 1 1 22rem; }
+.dica { color: var(--texto-suave); font-size: .88rem; margin: .35rem 0 0; }
+fieldset { border: 1px solid var(--borda); border-radius: var(--raio-p); margin: 1rem 0 0; padding: .6rem .9rem .8rem; }
+legend { font-weight: 600; padding: 0 .3rem; }
+.opcao { display: flex; gap: .45rem; align-items: center; font-weight: 400; margin: .25rem 0; }
+.arquivos { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: .5rem; }
+.arquivos label { font-weight: 500; }
+details.avancado { margin-top: .8rem; }
+details summary { cursor: pointer; font-weight: 600; }
+
+.status { border-radius: var(--raio-p); padding: .7rem .9rem; margin: 0 0 1rem; border: 1px solid var(--borda); background: var(--superficie); }
+.status[hidden] { display: none; }
+.status.erro { background: var(--vermelho-suave); border-color: var(--vermelho); }
+.status.rede { background: var(--ambar-suave); border-color: var(--ambar); }
+.status h2 { font-size: 1.05rem; margin: 0 0 .25rem; }
+.status p { margin: .2rem 0; }
+
+.vereditos { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); margin-bottom: 1rem; }
+.veredito { border-width: 2px; }
+.veredito h3 { margin: 0; font-size: 1rem; color: var(--texto-suave); font-weight: 600; }
+.selo { display: inline-flex; align-items: center; gap: .45rem; margin: .35rem 0 .25rem; font-size: 1.35rem; font-weight: 800; letter-spacing: .02em; }
+.selo .icone { width: 1.7rem; height: 1.7rem; border-radius: 50%; display: grid; place-items: center; font-size: 1rem; color: #fff; }
+.v-VALIDO { border-color: var(--verde-borda); }
+.v-VALIDO .selo { color: var(--verde-forte); } .v-VALIDO .icone { background: var(--verde); }
+.v-ADULTERADO { border-color: var(--vermelho); }
+.v-ADULTERADO .selo { color: var(--vermelho); } .v-ADULTERADO .icone { background: var(--vermelho); }
+.v-NAO_ANCORADO { border-color: var(--ambar); }
+.v-NAO_ANCORADO .selo { color: var(--ambar); } .v-NAO_ANCORADO .icone { background: var(--ambar); }
+@media (prefers-color-scheme: dark) { .selo .icone { color: #0e1511; } }
+.explica { margin: 0 0 .7rem; }
+.comparacao { display: grid; gap: .5rem; }
+.valor { background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio-p); padding: .45rem .6rem; }
+.valor .rotulo { display: block; font-size: .8rem; color: var(--texto-suave); font-weight: 600; }
+.valor code { font-family: var(--mono); font-size: .86rem; overflow-wrap: anywhere; word-break: break-all; }
+mark { background: var(--marca); color: var(--marca-texto); border-radius: 2px; padding: 0 1px; font-weight: 700; }
+dl.dados { display: grid; grid-template-columns: max-content 1fr; gap: .25rem .8rem; margin: .8rem 0 0; font-size: .92rem; }
+dl.dados dt { color: var(--texto-suave); }
+dl.dados dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 520px) { dl.dados { grid-template-columns: 1fr; } dl.dados dd { margin-bottom: .35rem; } }
+.erro-arquivo { color: var(--vermelho); font-weight: 600; margin: .5rem 0 0; }
+
+.certificado {
+  border: 2px solid var(--verde-borda); border-radius: var(--raio); padding: 1.3rem 1.4rem;
+  background: linear-gradient(180deg, var(--verde-suave), var(--superficie) 9rem);
+}
+.certificado .tipo { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--verde-forte); font-weight: 700; margin: 0; }
+.certificado .titular { font-size: 1.6rem; font-weight: 800; margin: .3rem 0 .1rem; overflow-wrap: anywhere; }
+.certificado .texto { margin: .2rem 0 .9rem; }
+.certificado table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.certificado th, .certificado td { text-align: left; padding: .4rem .3rem; border-bottom: 1px solid var(--borda); vertical-align: top; }
+.certificado td.num, .certificado th.num { text-align: right; white-space: nowrap; }
+.certificado .rodape { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; margin-top: .9rem; font-size: .9rem; color: var(--texto-suave); }
+.certificado .rodape strong { color: var(--texto); font-weight: 600; }
+
+ul.regra { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+ul.regra > li { border: 1px solid var(--borda); border-radius: var(--raio-p); padding: .55rem .75rem; }
+ul.regra .marca-ok { color: var(--verde-forte); font-weight: 700; }
+ul.regra .marca-falta { color: var(--vermelho); font-weight: 700; }
+ul.regra ul { margin: .3rem 0 0; padding-left: 1.2rem; font-size: .92rem; }
+.resumo-regra { font-weight: 700; margin: 0 0 .6rem; }
+
+.simulacao { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.simulacao .alterado { border-color: var(--vermelho); box-shadow: 0 0 0 1px var(--vermelho); }
+.etiqueta-alterado { font-size: .75rem; font-weight: 700; color: var(--vermelho); margin-left: .3rem; }
+
+details.como > summary { font-size: 1.05rem; }
+details.como h3 { font-size: .98rem; margin: 1rem 0 .3rem; }
+pre {
+  font-family: var(--mono); font-size: .82rem; background: var(--fundo); border: 1px solid var(--borda);
+  border-radius: var(--raio-p); padding: .6rem .7rem; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-all; margin: .3rem 0;
+}
+ol.passos { padding-left: 1.3rem; }
+ol.passos li { margin-bottom: .6rem; }
+footer { color: var(--texto-suave); font-size: .85rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<p class="aviso-fixo" role="note"><strong>Demonstração</strong>, fora do sistema em produção do QRCheck. Consulta uma rede QBFT local (127.0.0.1); o exemplo usa <strong>dados fictícios</strong>.</p>
+
+<main>
+  <header class="topo">
+    <div class="logo" aria-hidden="true">QR</div>
+    <div>
+      <h1>Verificação de certificado</h1>
+      <p>Confere o certificado e os check-ins contra o registro no contrato RegistroDeBatches.</p>
+    </div>
+  </header>
+
+  <noscript><p class="status erro">Esta página precisa de JavaScript para calcular os hashes e consultar o contrato.</p></noscript>
+
+  <section class="cartao" aria-labelledby="t-entrada">
+    <h2 id="t-entrada">Código do certificado</h2>
+    <form id="form" novalidate>
+      <div class="linha">
+        <div class="cresce">
+          <label for="campo-id">Código (certificado_id)</label>
+          <input id="campo-id" class="mono" type="text" inputmode="text" autocomplete="off" spellcheck="false"
+                 placeholder="00000000-0000-0000-0000-000000000000" aria-describedby="dica-id">
+        </div>
+        <button type="button" id="usar-exemplo">Usar o código do exemplo</button>
+        <button type="submit" class="primario" id="botao-verificar">Verificar</button>
+      </div>
+      <p class="dica" id="dica-id">Os ids consultados no contrato são derivados deste código: keccak256("certificado:" + código) e keccak256("checkins:" + código).</p>
+
+      <fieldset>
+        <legend>Dados do certificado e dos check-ins</legend>
+        <label class="opcao"><input type="radio" name="fonte" value="exemplo" checked> Exemplo fictício embutido na página</label>
+        <label class="opcao"><input type="radio" name="fonte" value="arquivos"> Arquivos do meu computador (não saem do navegador)</label>
+        <div class="arquivos" id="arquivos" hidden>
+          <div><label for="arq-cert">certificado.json</label><input type="file" id="arq-cert" accept=".json,application/json"></div>
+          <div><label for="arq-chk">checkins.json</label><input type="file" id="arq-chk" accept=".json,application/json"></div>
+        </div>
+        <p class="dica" id="fonte-estado"></p>
+      </fieldset>
+
+      <details class="avancado">
+        <summary>Nó consultado</summary>
+        <label for="campo-rpc" style="margin-top:.5rem">Endereço JSON-RPC (só 127.0.0.1 ou localhost)</label>
+        <input id="campo-rpc" class="mono" type="text" autocomplete="off" spellcheck="false">
+        <p class="dica">A rede esperada (chainId, bloco 0 e contrato) vem do deployment.json e não muda com este campo.</p>
+      </details>
+    </form>
+  </section>
+
+  <div id="status" class="status" hidden tabindex="-1"></div>
+  <p id="anuncio" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+
+  <div id="resultado" hidden>
+    <section aria-labelledby="t-vereditos">
+      <h2 id="t-vereditos" class="sr-only">Vereditos</h2>
+      <div class="vereditos">
+        <article class="cartao veredito" id="v-certificado" aria-labelledby="v-certificado-t"></article>
+        <article class="cartao veredito" id="v-checkins" aria-labelledby="v-checkins-t"></article>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-cert">
+      <h2 id="t-cert">Certificado <span class="sub">como o participante o vê</span></h2>
+      <div id="certificado-visto"></div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-regra">
+      <h2 id="t-regra">Regra das atividades <span class="sub">cada atividade com ao menos um check-in do titular</span></h2>
+      <div id="regra"></div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-sim">
+      <h2 id="t-sim">Simule uma adulteração <span class="sub">só nesta página; a verificação refaz a consulta a cada alteração</span></h2>
+      <div class="simulacao">
+        <div><label for="sim-nome">Nome do titular</label><input id="sim-nome" type="text"></div>
+        <div><label for="sim-carga">Carga horária total (minutos)</label><input id="sim-carga" type="text" inputmode="numeric"></div>
+        <div><label for="sim-emitido">emitido_em (UTC, com microssegundos)</label><input id="sim-emitido" class="mono" type="text" spellcheck="false"></div>
+        <div><label for="sim-qual">Check-in</label><select id="sim-qual"></select></div>
+        <div><label for="sim-horario">Horário do check-in (UTC)</label><input id="sim-horario" class="mono" type="text" spellcheck="false"></div>
+      </div>
+      <div class="linha" style="margin-top:.9rem">
+        <button type="button" id="restaurar">Restaurar o original</button>
+        <span class="dica" id="sim-estado" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="t-rede">
+      <h2 id="t-rede">Rede conferida</h2>
+      <dl class="dados" id="rede"></dl>
+    </section>
+
+    <section class="cartao">
+      <details class="como">
+        <summary>Como a verificação foi feita</summary>
+        <div id="como"></div>
+      </details>
+    </section>
+  </div>
+
+  <footer>
+    <p>Hashes, serialização canônica e decodificação do ABI são calculados nesta página, sem bibliotecas externas. O nó recebe só consultas de leitura (chainId, bloco 0, código do contrato e consultarPorId com os ids derivados); o conteúdo do certificado e dos check-ins não sai do navegador.</p>
+  </footer>
+</main>
+
+<!-- Rede esperada: cópia de demo-verificacao/deployment.json (testes/conferir-pagina.js confere). -->
+<script type="application/json" id="implantacao">
+{"chainId":1338,"hashBloco0":"0xc1732a36ec599abab973631cf0c8a1134f042d9e05c44d7a87209f9f4d50af78","endereco":"0x8CdaF0CD259887258Bc13a92C0a6dA92698644C0","rpc":"http://127.0.0.1:9545"}
+</script>
+
+<!-- Exemplo fictício: cópia de demo-verificacao/exemplo/ (testes/conferir-pagina.js confere). -->
+<script type="application/json" id="exemplo-certificado">
+{
+  "tipo": "certificado",
+  "v": 1,
+  "certificado_id": "0b9f6f2e-7d1a-4c3e-9a55-3f0c2d1e4b6a",
+  "evento_id": "a0000000-0000-4000-8000-000000000171",
+  "evento_nome": "JACITEC 2026 — Jornada \"Científica\"",
+  "participante": "b0000000-0000-4000-8000-000000000001",
+  "nome_titular": "José da Conceição Ñúñez",
+  "emitido_por": "b0000000-0000-4000-8000-000000000002",
+  "emitido_em": "2026-10-24T14:32:07.123456Z",
+  "modo_carga_horaria": "SOMA_ATIVIDADES",
+  "carga_horaria_minutos": 210,
+  "substitui": null,
+  "atividades": [
+    { "id": "ffffffff-0000-4000-8000-000000000001", "nome": "Oficina de React", "carga_horaria_minutos": 90 },
+    { "id": "00000000-0000-4000-8000-000000000002", "nome": "Palestra: IA & Ética", "carga_horaria_minutos": 120 }
+  ]
+}
+</script>
+<script type="application/json" id="exemplo-checkins">
+[
+  {
+    "tipo": "checkin",
+    "evento_id": "a0000000-0000-4000-8000-000000000171",
+    "atividade_id": "ffffffff-0000-4000-8000-000000000001",
+    "participante": "b0000000-0000-4000-8000-000000000001",
+    "feito_por": "b0000000-0000-4000-8000-000000000002",
+    "horario_checkin": "2026-10-24T13:58:09.771120Z"
+  },
+  {
+    "tipo": "checkin",
+    "evento_id": "a0000000-0000-4000-8000-000000000171",
+    "atividade_id": "00000000-0000-4000-8000-000000000002",
+    "participante": "b0000000-0000-4000-8000-000000000001",
+    "feito_por": null,
+    "horario_checkin": "2026-10-24T08:57:41.204813Z"
+  }
+]
+</script>
+
+<!-- Núcleo sem DOM: SHA-256, keccak256, serialização canônica (mesmas regras de lib/canonico.js),
+     fingerprint do lote (lib/lote.js), regra das atividades e ABI de consultarPorId.
+     testes/conferir-pagina.js executa este bloco no Node e compara com lib/ e com a web3. -->
+<script id="nucleo">
+const Nucleo = (() => {
+  'use strict';
+  const codificador = new TextEncoder();
+  const utf8 = (s) => codificador.encode(s);
+  const hex = (bytes) => Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+
+  // ---------- SHA-256 (FIPS 180-4) ----------
+  const K = new Uint32Array([
+    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2]);
+  const rotr = (x, n) => (x >>> n) | (x << (32 - n));
+
+  function sha256(bytes) {
+    const n = bytes.length;
+    const m = new Uint8Array((((n + 9) + 63) >> 6) << 6);
+    m.set(bytes); m[n] = 0x80;
+    const dv = new DataView(m.buffer);
+    const bits = n * 8;
+    dv.setUint32(m.length - 8, Math.floor(bits / 0x100000000));
+    dv.setUint32(m.length - 4, bits >>> 0);
+    const H = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
+    const W = new Uint32Array(64);
+    for (let off = 0; off < m.length; off += 64) {
+      for (let t = 0; t < 16; t++) W[t] = dv.getUint32(off + t * 4);
+      for (let t = 16; t < 64; t++) {
+        const s0 = rotr(W[t - 15], 7) ^ rotr(W[t - 15], 18) ^ (W[t - 15] >>> 3);
+        const s1 = rotr(W[t - 2], 17) ^ rotr(W[t - 2], 19) ^ (W[t - 2] >>> 10);
+        W[t] = (W[t - 16] + s0 + W[t - 7] + s1) >>> 0;
+      }
+      let [a, b, c, d, e, f, g, h] = H;
+      for (let t = 0; t < 64; t++) {
+        const t1 = (h + (rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25)) + ((e & f) ^ (~e & g)) + K[t] + W[t]) >>> 0;
+        const t2 = ((rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22)) + ((a & b) ^ (a & c) ^ (b & c))) >>> 0;
+        h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+      }
+      H[0] += a; H[1] += b; H[2] += c; H[3] += d; H[4] += e; H[5] += f; H[6] += g; H[7] += h;
+    }
+    const out = new Uint8Array(32);
+    const dvo = new DataView(out.buffer);
+    for (let i = 0; i < 8; i++) dvo.setUint32(i * 4, H[i]);
+    return out;
+  }
+  const sha256Hex = (texto) => hex(sha256(utf8(texto)));
+
+  // ---------- keccak256 (Keccak-f[1600], padding original 0x01 do Ethereum) ----------
+  const M64 = (1n << 64n) - 1n;
+  const RC = [
+    0x0000000000000001n, 0x0000000000008082n, 0x800000000000808an, 0x8000000080008000n,
+    0x000000000000808bn, 0x0000000080000001n, 0x8000000080008081n, 0x8000000000008009n,
+    0x000000000000008an, 0x0000000000000088n, 0x0000000080008009n, 0x000000008000000an,
+    0x000000008000808bn, 0x800000000000008bn, 0x8000000000008089n, 0x8000000000008003n,
+    0x8000000000008002n, 0x8000000000000080n, 0x000000000000800an, 0x800000008000000an,
+    0x8000000080008081n, 0x8000000000008080n, 0x0000000080000001n, 0x8000000080008008n];
+  const ROT = [0, 1, 62, 28, 27, 36, 44, 6, 55, 20, 3, 10, 43, 25, 39, 41, 45, 15, 21, 8, 18, 2, 61, 56, 14];
+  const rotl = (v, n) => (n === 0 ? v : ((v << BigInt(n)) | (v >> BigInt(64 - n))) & M64);
+
+  function keccakF(A) {
+    const C = new Array(5);
+    const B = new Array(25);
+    for (let r = 0; r < 24; r++) {
+      for (let x = 0; x < 5; x++) C[x] = A[x] ^ A[x + 5] ^ A[x + 10] ^ A[x + 15] ^ A[x + 20];
+      for (let x = 0; x < 5; x++) {
+        const D = C[(x + 4) % 5] ^ rotl(C[(x + 1) % 5], 1);
+        for (let y = 0; y < 25; y += 5) A[y + x] ^= D;
+      }
+      for (let x = 0; x < 5; x++) for (let y = 0; y < 5; y++) B[y + 5 * ((2 * x + 3 * y) % 5)] = rotl(A[x + 5 * y], ROT[x + 5 * y]);
+      for (let y = 0; y < 25; y += 5) for (let x = 0; x < 5; x++) A[y + x] = B[y + x] ^ ((~B[y + (x + 1) % 5] & M64) & B[y + (x + 2) % 5]);
+      A[0] ^= RC[r];
+    }
+  }
+
+  function keccak256(bytes) {
+    const taxa = 136;
+    const A = new Array(25).fill(0n);
+    const m = new Uint8Array(bytes.length + (taxa - (bytes.length % taxa)));
+    m.set(bytes);
+    m[bytes.length] ^= 0x01;
+    m[m.length - 1] ^= 0x80;
+    for (let off = 0; off < m.length; off += taxa) {
+      for (let i = 0; i < taxa / 8; i++) {
+        let v = 0n;
+        for (let k = 7; k >= 0; k--) v = (v << 8n) | BigInt(m[off + i * 8 + k]);
+        A[i] ^= v;
+      }
+      keccakF(A);
+    }
+    const out = new Uint8Array(32);
+    for (let i = 0; i < 4; i++) { let v = A[i]; for (let k = 0; k < 8; k++) { out[i * 8 + k] = Number(v & 0xffn); v >>= 8n; } }
+    return out;
+  }
+  const keccakTexto = (texto) => '0x' + hex(keccak256(utf8(texto)));
+
+  // ---------- serialização canônica (mesmas regras de lib/canonico.js) ----------
+  const RE_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+  const RE_INSTANTE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{6})Z$/;
+  const MODO_SOMA = 'SOMA_ATIVIDADES';
+  const erro = (msg) => { throw new Error(msg); };
+  const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+  const bemFormada = (s) => (typeof s.isWellFormed === 'function' ? s.isWellFormed()
+    : !/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:^|[^\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(s));
+
+  function json(valor) {
+    if (valor === null) return 'null';
+    if (typeof valor === 'boolean') return valor ? 'true' : 'false';
+    if (typeof valor === 'number') {
+      if (!Number.isSafeInteger(valor)) erro(`número não inteiro ou fora do intervalo seguro: ${valor}`);
+      return String(valor);
+    }
+    if (typeof valor === 'string') {
+      if (!bemFormada(valor)) erro('string com surrogate isolado');
+      return JSON.stringify(valor);
+    }
+    if (Array.isArray(valor)) return '[' + valor.map(json).join(',') + ']';
+    if (typeof valor === 'object') {
+      return '{' + Object.keys(valor).sort(cmp).map((k) => {
+        if (valor[k] === undefined) erro(`chave ${k} com valor undefined`);
+        return json(k) + ':' + json(valor[k]);
+      }).join(',') + '}';
+    }
+    erro(`tipo não suportado: ${typeof valor}`);
+  }
+
+  function uuid(valor, campo) {
+    if (typeof valor !== 'string') erro(`${campo}: UUID ausente`);
+    const v = valor.toLowerCase();
+    if (!RE_UUID.test(v)) erro(`${campo}: UUID inválido (${valor})`);
+    return v;
+  }
+  const uuidOuNull = (valor, campo) => (valor === null ? null : uuid(valor, campo));
+
+  function instante(valor, campo) {
+    const m = typeof valor === 'string' && valor.match(RE_INSTANTE);
+    if (!m) erro(`${campo}: esperado AAAA-MM-DDTHH:MM:SS.ffffffZ em UTC (${valor})`);
+    const [ano, mes, dia, h, min, s] = m.slice(1, 7).map(Number);
+    const d = new Date(Date.UTC(ano, mes - 1, dia, h, min, s));
+    if (d.getUTCFullYear() !== ano || d.getUTCMonth() !== mes - 1 || d.getUTCDate() !== dia
+      || d.getUTCHours() !== h || d.getUTCMinutes() !== min || d.getUTCSeconds() !== s) {
+      erro(`${campo}: data/hora inexistente (${valor})`);
+    }
+    return valor;
+  }
+  function inteiroPositivo(valor, campo) {
+    if (!Number.isSafeInteger(valor) || valor <= 0) erro(`${campo}: inteiro positivo esperado (${valor})`);
+    return valor;
+  }
+  function texto(valor, campo) {
+    if (typeof valor !== 'string' || valor === '') erro(`${campo}: texto não vazio esperado`);
+    return valor;
+  }
+  function exatamente(obj, chaves, onde) {
+    const extras = Object.keys(obj).filter((k) => !chaves.includes(k));
+    if (extras.length) erro(`${onde}: chaves não previstas: ${extras.join(', ')}`);
+  }
+
+  const CHAVES_CERT = ['atividades', 'carga_horaria_minutos', 'certificado_id', 'emitido_em', 'emitido_por',
+    'evento_id', 'evento_nome', 'modo_carga_horaria', 'nome_titular', 'participante', 'substitui', 'tipo', 'v'];
+  const CHAVES_ATIV = ['carga_horaria_minutos', 'id', 'nome'];
+
+  function normalizarCertificado(c) {
+    if (!c || typeof c !== 'object' || Array.isArray(c)) erro('certificado: objeto esperado');
+    exatamente(c, CHAVES_CERT, 'certificado');
+    if (c.tipo !== 'certificado') erro(`tipo: esperado "certificado" (${c.tipo})`);
+    if (c.v !== 1) erro(`v: versão não suportada (${c.v})`);
+    const n = {
+      carga_horaria_minutos: inteiroPositivo(c.carga_horaria_minutos, 'carga_horaria_minutos'),
+      certificado_id: uuid(c.certificado_id, 'certificado_id'),
+      emitido_em: instante(c.emitido_em, 'emitido_em'),
+      emitido_por: uuid(c.emitido_por, 'emitido_por'),
+      evento_id: uuid(c.evento_id, 'evento_id'),
+      evento_nome: texto(c.evento_nome, 'evento_nome'),
+      modo_carga_horaria: texto(c.modo_carga_horaria, 'modo_carga_horaria'),
+      nome_titular: texto(c.nome_titular, 'nome_titular'),
+      participante: uuid(c.participante, 'participante'),
+      substitui: uuidOuNull(c.substitui, 'substitui'),
+      tipo: 'certificado',
+      v: 1,
+    };
+    if (n.modo_carga_horaria === MODO_SOMA) {
+      if (!Array.isArray(c.atividades) || c.atividades.length === 0) erro('atividades: obrigatórias no modo SOMA_ATIVIDADES');
+      const ativ = c.atividades.map((a, i) => {
+        if (!a || typeof a !== 'object' || Array.isArray(a)) erro(`atividades[${i}]: objeto esperado`);
+        exatamente(a, CHAVES_ATIV, `atividades[${i}]`);
+        return {
+          carga_horaria_minutos: inteiroPositivo(a.carga_horaria_minutos, `atividades[${i}].carga_horaria_minutos`),
+          id: uuid(a.id, `atividades[${i}].id`),
+          nome: texto(a.nome, `atividades[${i}].nome`),
+        };
+      }).sort((a, b) => cmp(a.id, b.id));
+      for (let i = 1; i < ativ.length; i++) if (ativ[i].id === ativ[i - 1].id) erro(`atividades: id repetido ${ativ[i].id}`);
+      const soma = ativ.reduce((s, a) => s + a.carga_horaria_minutos, 0);
+      if (soma !== n.carga_horaria_minutos) erro(`atividades: soma das cargas (${soma}) ≠ carga_horaria_minutos (${n.carga_horaria_minutos})`);
+      n.atividades = ativ;
+    } else if (c.atividades !== undefined) {
+      erro(`atividades: só são permitidas no modo SOMA_ATIVIDADES (modo ${n.modo_carga_horaria})`);
+    }
+    return n;
+  }
+
+  function calcularCertificado(entrada) {
+    const certificado = normalizarCertificado(entrada);
+    const canonico = json(certificado);
+    return { certificado, canonico, hash: sha256Hex(canonico) };
+  }
+
+  // ---------- lote de check-ins (mesmo algoritmo de lib/lote.js) ----------
+  const SEMENTE = 'QRCHECK-DEMO-CHECKINS-v1';
+  const CHAVES_CHK = ['atividade_id', 'evento_id', 'feito_por', 'horario_checkin', 'participante', 'tipo'];
+
+  function normalizarCheckin(r, i = 0) {
+    if (!r || typeof r !== 'object' || Array.isArray(r)) erro(`checkins[${i}]: objeto esperado`);
+    exatamente(r, CHAVES_CHK, `checkins[${i}]`);
+    if (r.tipo !== 'checkin') erro(`checkins[${i}].tipo: esperado "checkin" (${r.tipo})`);
+    return {
+      atividade_id: uuid(r.atividade_id, `checkins[${i}].atividade_id`),
+      evento_id: uuid(r.evento_id, `checkins[${i}].evento_id`),
+      feito_por: uuidOuNull(r.feito_por, `checkins[${i}].feito_por`),
+      horario_checkin: instante(r.horario_checkin, `checkins[${i}].horario_checkin`),
+      participante: uuid(r.participante, `checkins[${i}].participante`),
+      tipo: 'checkin',
+    };
+  }
+
+  function fingerprintLote(checkins) {
+    if (!Array.isArray(checkins)) erro('checkins: lista esperada');
+    const itens = checkins
+      .map((r, i) => { const n = normalizarCheckin(r, i); return { registro: n, canonico: json(n) }; })
+      .sort((a, b) => cmp(a.registro.horario_checkin, b.registro.horario_checkin)
+        || cmp(a.registro.atividade_id, b.registro.atividade_id)
+        || cmp(a.canonico, b.canonico));
+    const cadeia = [sha256Hex(SEMENTE)];
+    for (const it of itens) cadeia.push(sha256Hex(cadeia[cadeia.length - 1] + it.canonico));
+    return { semente: SEMENTE, itens, cadeia, fingerprint: cadeia[cadeia.length - 1], tamanho: itens.length };
+  }
+
+  // Regra da demonstração (lib/demo.js): cada atividade com ao menos um check-in do titular, no evento, nela.
+  function regraAtividades(certificado, itens) {
+    if (certificado.modo_carga_horaria !== MODO_SOMA) {
+      return { ok: true, aplicavel: false, motivo: `modo ${certificado.modo_carga_horaria}: certificado sem atividades`, atividades: [] };
+    }
+    const atividades = certificado.atividades.map((a) => {
+      const achados = itens.filter(({ registro: r }) => r.atividade_id === a.id
+        && r.participante === certificado.participante && r.evento_id === certificado.evento_id).map((it) => it.registro);
+      return { id: a.id, nome: a.nome, checkins_do_titular: achados.length, checkins: achados, ok: achados.length > 0 };
+    });
+    return { ok: atividades.every((a) => a.ok), aplicavel: true, atividades };
+  }
+
+  // ---------- contrato ----------
+  const ASSINATURA_CONSULTA = 'consultarPorId(bytes32)';
+  const seletor = (assinatura) => keccakTexto(assinatura).slice(0, 10);
+
+  function idsNoContrato(certificadoId) {
+    const p = { certificado: 'certificado:' + certificadoId, checkins: 'checkins:' + certificadoId };
+    return { preimagens: p, certificado: keccakTexto(p.certificado), checkins: keccakTexto(p.checkins) };
+  }
+
+  function dadosConsulta(id) {
+    if (!/^0x[0-9a-f]{64}$/.test(id)) erro(`id bytes32 inválido: ${id}`);
+    return seletor(ASSINATURA_CONSULTA) + id.slice(2);
+  }
+
+  function checksum(endereco) {
+    const a = endereco.toLowerCase().replace(/^0x/, '');
+    const h = keccakTexto(a).slice(2);
+    let s = '0x';
+    for (let i = 0; i < a.length; i++) s += parseInt(h[i], 16) >= 8 ? a[i].toUpperCase() : a[i];
+    return s;
+  }
+
+  // Saída de consultarPorId: (bytes32 fingerprint, uint256 registradoEm, uint256 tamanho, address registradoPor, bool existe)
+  function decodificarConsulta(retorno) {
+    if (typeof retorno !== 'string' || !/^0x[0-9a-fA-F]*$/.test(retorno) || retorno.length !== 2 + 64 * 5) {
+      erro(`retorno inesperado de consultarPorId: ${String(retorno).slice(0, 80)}`);
+    }
+    const p = (i) => retorno.slice(2 + 64 * i, 2 + 64 * (i + 1)).toLowerCase();
+    const inteiro = (w) => { const v = BigInt('0x' + w); if (v > BigInt(Number.MAX_SAFE_INTEGER)) erro('uint256 grande demais'); return Number(v); };
+    if (!/^0{24}/.test(p(3))) erro('address mal codificado no retorno');
+    const b = BigInt('0x' + p(4));
+    if (b > 1n) erro('bool mal codificado no retorno');
+    return {
+      fingerprint: '0x' + p(0),
+      registradoEm: inteiro(p(1)),
+      tamanho: inteiro(p(2)),
+      registradoPor: checksum('0x' + p(3).slice(24)),
+      existe: b === 1n,
+    };
+  }
+
+  // Veredito (mesma lógica de verificar.js).
+  function situacao(onchain, recalculado, tamanho) {
+    if (!onchain.existe) return 'NAO_ANCORADO';
+    if (recalculado === null) return 'ADULTERADO';
+    return onchain.fingerprint === '0x' + recalculado && onchain.tamanho === tamanho ? 'VALIDO' : 'ADULTERADO';
+  }
+
+  return {
+    sha256Hex, keccakTexto, json, uuid, calcularCertificado, fingerprintLote, regraAtividades,
+    idsNoContrato, seletor, dadosConsulta, decodificarConsulta, checksum, situacao, ASSINATURA_CONSULTA, SEMENTE, MODO_SOMA,
+  };
+})();
+</script>
+
+<!-- Interface -->
+<script>
+(() => {
+  'use strict';
+  const N = Nucleo;
+  const $ = (id) => document.getElementById(id);
+  const embutido = (id) => JSON.parse($(id).textContent);
+  const IMPL = embutido('implantacao');
+  const EXEMPLO = { certificado: embutido('exemplo-certificado'), checkins: embutido('exemplo-checkins') };
+  const clonar = (o) => JSON.parse(JSON.stringify(o));
+
+  let original = null;   // dados como carregados (exemplo ou arquivos)
+  let atual = null;      // cópia sujeita à simulação
+  let rodada = 0;        // descarta respostas de verificações antigas
+  let espera = null;
+
+  // ---------- utilidades de DOM (sempre textContent; dados de arquivo nunca viram HTML) ----------
+  function el(tag, props = {}, ...filhos) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (v === undefined || v === null || v === false) continue;
+      if (k === 'class') e.className = v;
+      else if (k === 'text') e.textContent = v;
+      else e.setAttribute(k, v === true ? '' : v);
+    }
+    for (const f of filhos.flat()) if (f !== null && f !== undefined && f !== false) e.append(f);
+    return e;
+  }
+  const limpar = (e) => { while (e.firstChild) e.removeChild(e.firstChild); return e; };
+
+  // Destaca em <mark> os caracteres que diferem de "outro".
+  function comDiferencas(valor, outro) {
+    const code = el('code');
+    if (valor === null) { code.append(el('span', { text: '(sem registro)' })); return code; }
+    if (outro === null) { code.textContent = valor; return code; }
+    let trecho = '';
+    let marcado = false;
+    const fecha = () => { if (trecho) code.append(marcado ? el('mark', { text: trecho }) : document.createTextNode(trecho)); trecho = ''; };
+    for (let i = 0; i < valor.length; i++) {
+      const dif = valor[i] !== outro[i];
+      if (dif !== marcado) { fecha(); marcado = dif; }
+      trecho += valor[i];
+    }
+    fecha();
+    return code;
+  }
+
+  function cargaLegivel(min) {
+    if (!Number.isSafeInteger(min)) return String(min);
+    const h = Math.floor(min / 60);
+    const m = min % 60;
+    const partes = [];
+    if (h) partes.push(`${h} h`);
+    if (m || !h) partes.push(`${m} min`);
+    return `${partes.join(' ')} (${min} min)`;
+  }
+  function instanteLegivel(s) {
+    const m = typeof s === 'string' && s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{6})Z$/);
+    return m ? `${m[3]}/${m[2]}/${m[1]} ${m[4]}:${m[5]}:${m[6]},${m[7]} UTC` : String(s);
+  }
+  function registroLegivel(seg) {
+    const d = new Date(seg * 1000);
+    const utc = d.toLocaleString('pt-BR', { timeZone: 'UTC', dateStyle: 'short', timeStyle: 'medium' });
+    const local = d.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'medium' });
+    return `${utc} UTC · ${local} no horário local (registradoEm = ${seg})`;
+  }
+
+  // ---------- JSON-RPC ----------
+  class ErroNo extends Error {}
+
+  async function rpc(url, metodo, params) {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 6000);
+    let resp;
+    try {
+      resp = await fetch(url, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctl.signal, cache: 'no-store',
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: metodo, params }),
+      });
+    } catch (e) {
+      throw new ErroNo(e.name === 'AbortError' ? 'tempo esgotado (6 s) sem resposta' : 'conexão recusada ou bloqueada pelo navegador');
+    } finally {
+      clearTimeout(t);
+    }
+    if (!resp.ok) throw new ErroNo(`resposta HTTP ${resp.status}`);
+    let j;
+    try { j = await resp.json(); } catch { throw new ErroNo('resposta que não é JSON-RPC'); }
+    if (j.error) throw new Error(`o nó recusou ${metodo}: ${j.error.message}`);
+    return j.result;
+  }
+
+  async function consultar(url, id) {
+    const r = await rpc(url, 'eth_call', [{ to: IMPL.endereco, data: N.dadosConsulta(id) }, 'latest']);
+    return N.decodificarConsulta(r);
+  }
+
+  // ---------- estado / mensagens ----------
+  const status = $('status');
+  const anuncio = $('anuncio');
+  const resultado = $('resultado');
+
+  function mostrarStatus(tipo, titulo, ...linhas) {
+    status.className = 'status' + (tipo ? ' ' + tipo : '');
+    status.setAttribute('role', tipo === 'erro' || tipo === 'rede' ? 'alert' : 'status');
+    limpar(status).append(el('h2', { text: titulo }), ...linhas.map((l) => (typeof l === 'string' ? el('p', { text: l }) : l)));
+    status.hidden = false;
+  }
+  const esconderStatus = () => { status.hidden = true; limpar(status); };
+
+  // ---------- fonte dos dados ----------
+  const campoId = $('campo-id');
+  const campoRpc = $('campo-rpc');
+  campoRpc.value = IMPL.rpc;
+  const fonte = () => document.querySelector('input[name=fonte]:checked').value;
+  const estadoFonte = $('fonte-estado');
+
+  async function lerArquivo(input, nome) {
+    const f = input.files && input.files[0];
+    if (!f) return undefined;
+    try { return JSON.parse(await f.text()); } catch (e) { throw new Error(`${nome} não é um JSON válido (${e.message})`); }
+  }
+
+  async function carregarFonte() {
+    $('arquivos').hidden = fonte() !== 'arquivos';
+    if (fonte() === 'exemplo') {
+      original = clonar(EXEMPLO);
+      estadoFonte.textContent = 'Usando o exemplo fictício embutido na página.';
+    } else {
+      original = null;
+      try {
+        const certificado = await lerArquivo($('arq-cert'), 'certificado.json');
+        const checkins = await lerArquivo($('arq-chk'), 'checkins.json');
+        if (certificado === undefined || checkins === undefined) {
+          estadoFonte.textContent = 'Escolha os dois arquivos. Eles são lidos só pelo navegador.';
+        } else {
+          original = { certificado, checkins };
+          estadoFonte.textContent = 'Arquivos carregados no navegador; nada foi enviado.';
+        }
+      } catch (e) {
+        estadoFonte.textContent = e.message;
+      }
+    }
+    atual = original ? clonar(original) : null;
+    preencherSimulacao();
+  }
+
+  // ---------- simulação ----------
+  const sim = { nome: $('sim-nome'), carga: $('sim-carga'), emitido: $('sim-emitido'), qual: $('sim-qual'), horario: $('sim-horario') };
+
+  function nomeAtividade(id) {
+    const a = atual && atual.certificado && Array.isArray(atual.certificado.atividades)
+      ? atual.certificado.atividades.find((x) => x && typeof x.id === 'string' && x.id.toLowerCase() === String(id).toLowerCase()) : null;
+    return a && typeof a.nome === 'string' ? a.nome : String(id);
+  }
+
+  function preencherSimulacao() {
+    const ok = !!atual && atual.certificado && typeof atual.certificado === 'object' && Array.isArray(atual.checkins);
+    for (const c of Object.values(sim)) c.disabled = !ok;
+    $('restaurar').disabled = !ok;
+    limpar(sim.qual);
+    if (!ok) { for (const c of [sim.nome, sim.carga, sim.emitido, sim.horario]) c.value = ''; marcarAlterados(); return; }
+    sim.nome.value = atual.certificado.nome_titular ?? '';
+    sim.carga.value = String(atual.certificado.carga_horaria_minutos ?? '');
+    sim.emitido.value = atual.certificado.emitido_em ?? '';
+    atual.checkins.forEach((r, i) => sim.qual.append(el('option', { value: String(i), text: `${i + 1}. ${nomeAtividade(r && r.atividade_id)}` })));
+    sim.horario.value = atual.checkins.length ? (atual.checkins[0].horario_checkin ?? '') : '';
+    sim.horario.disabled = !atual.checkins.length;
+    marcarAlterados();
+  }
+
+  function marcarAlterados() {
+    const pares = [];
+    if (atual && original) {
+      pares.push([sim.nome, atual.certificado.nome_titular !== original.certificado.nome_titular]);
+      pares.push([sim.carga, atual.certificado.carga_horaria_minutos !== original.certificado.carga_horaria_minutos]);
+      pares.push([sim.emitido, atual.certificado.emitido_em !== original.certificado.emitido_em]);
+      const i = Number(sim.qual.value || 0);
+      pares.push([sim.horario, !!atual.checkins[i] && atual.checkins[i].horario_checkin !== original.checkins[i].horario_checkin]);
+    }
+    let algum = false;
+    for (const [campo, alterado] of pares) {
+      campo.classList.toggle('alterado', alterado);
+      campo.setAttribute('aria-invalid', alterado ? 'true' : 'false');
+      algum = algum || alterado;
+    }
+    const outros = atual && original && atual.checkins.some((r, i) => r.horario_checkin !== original.checkins[i].horario_checkin);
+    $('sim-estado').textContent = (algum || outros) ? 'Dados alterados em relação ao original.' : 'Dados iguais ao original.';
+  }
+
+  function aoSimular() {
+    if (!atual) return;
+    atual.certificado.nome_titular = sim.nome.value;
+    const c = sim.carga.value.trim();
+    atual.certificado.carga_horaria_minutos = /^-?\d+$/.test(c) ? Number(c) : c;
+    atual.certificado.emitido_em = sim.emitido.value;
+    const i = Number(sim.qual.value || 0);
+    if (atual.checkins[i]) atual.checkins[i].horario_checkin = sim.horario.value;
+    marcarAlterados();
+    clearTimeout(espera);
+    espera = setTimeout(verificar, 350);
+  }
+  for (const c of [sim.nome, sim.carga, sim.emitido, sim.horario]) c.addEventListener('input', aoSimular);
+  sim.qual.addEventListener('change', () => {
+    const i = Number(sim.qual.value || 0);
+    sim.horario.value = atual && atual.checkins[i] ? (atual.checkins[i].horario_checkin ?? '') : '';
+    marcarAlterados();
+  });
+  $('restaurar').addEventListener('click', () => {
+    if (!original) return;
+    atual = clonar(original);
+    preencherSimulacao();
+    verificar();
+  });
+
+  // ---------- verificação ----------
+  async function verificar() {
+    const minha = ++rodada;
+    clearTimeout(espera);
+    let certificadoId;
+    try { certificadoId = N.uuid(campoId.value.trim(), 'código'); } catch {
+      resultado.hidden = true; anuncio.textContent = '';
+      mostrarStatus('erro', 'Código inválido', 'Informe o código do certificado no formato UUID (8-4-4-4-12 caracteres hexadecimais).');
+      return;
+    }
+    if (!atual) {
+      resultado.hidden = true; anuncio.textContent = '';
+      mostrarStatus('erro', 'Faltam os dados', 'Escolha certificado.json e checkins.json, ou use o exemplo fictício.');
+      return;
+    }
+    const url = campoRpc.value.trim() || IMPL.rpc;
+    $('botao-verificar').disabled = true;
+    resultado.setAttribute('aria-busy', 'true');
+    mostrarStatus('', 'Consultando o nó…', url);
+    anuncio.textContent = 'Consultando o nó.';
+
+    try {
+      // 1. rede: chainId e bloco 0 contra o deployment.json, antes de qualquer veredito
+      const [chainHex, bloco0, codigo, blocoAtual] = await Promise.all([
+        rpc(url, 'eth_chainId', []), rpc(url, 'eth_getBlockByNumber', ['0x0', false]),
+        rpc(url, 'eth_getCode', [IMPL.endereco, 'latest']), rpc(url, 'eth_blockNumber', []),
+      ]);
+      if (minha !== rodada) return;
+      const rede = { url, chainId: parseInt(chainHex, 16), hashBloco0: bloco0 && bloco0.hash, temCodigo: !!codigo && codigo !== '0x', bloco: parseInt(blocoAtual, 16) };
+      if (rede.chainId !== IMPL.chainId || rede.hashBloco0 !== IMPL.hashBloco0) {
+        resultado.hidden = true;
+        mostrarStatus('rede', 'A página está ligada a outra rede. Nada foi verificado.',
+          `Nó: ${url}`,
+          `chainId: ${rede.chainId} (esperado ${IMPL.chainId})`,
+          `hash do bloco 0: ${rede.hashBloco0} (esperado ${IMPL.hashBloco0})`,
+          'Confira o endereço do nó ou suba a instância qbft-demo.');
+        anuncio.textContent = 'A página está ligada a outra rede. Nenhuma verificação foi feita.';
+        return;
+      }
+      if (!rede.temCodigo) {
+        resultado.hidden = true;
+        mostrarStatus('rede', 'O contrato não está nesta rede. Nada foi verificado.', `Sem código em ${IMPL.endereco}.`);
+        anuncio.textContent = 'O contrato não foi encontrado. Nenhuma verificação foi feita.';
+        return;
+      }
+
+      // 2. recálculo local (os ids vêm do código digitado, não do arquivo)
+      const ids = N.idsNoContrato(certificadoId);
+      let cert = null; let erroCert = null;
+      try { cert = N.calcularCertificado(atual.certificado); } catch (e) { erroCert = e.message; }
+      let lote = null; let erroLote = null;
+      try { lote = N.fingerprintLote(atual.checkins); } catch (e) { erroLote = e.message; }
+
+      // 3. consulta ao contrato
+      const [ocCert, ocLote] = await Promise.all([consultar(url, ids.certificado), consultar(url, ids.checkins)]);
+      if (minha !== rodada) return;
+
+      const vCert = N.situacao(ocCert, cert && cert.hash, 1);
+      const vLote = N.situacao(ocLote, lote && lote.fingerprint, lote ? lote.tamanho : -1);
+      const regra = cert && lote ? N.regraAtividades(cert.certificado, lote.itens) : null;
+
+      esconderStatus();
+      desenharVeredito($('v-certificado'), 'Certificado', 'SHA-256 do certificado', vCert, cert && '0x' + cert.hash, ocCert, 1, erroCert,
+        cert && cert.certificado.certificado_id !== certificadoId ? `O arquivo traz outro código (${cert.certificado.certificado_id}).` : null,
+        ids.certificado, ids.preimagens.certificado);
+      desenharVeredito($('v-checkins'), 'Check-ins', 'Fingerprint do lote', vLote, lote && '0x' + lote.fingerprint, ocLote, lote ? lote.tamanho : null, erroLote,
+        null, ids.checkins, ids.preimagens.checkins);
+      desenharCertificado(atual.certificado, cert);
+      desenharRegra(regra, erroCert || erroLote);
+      desenharRede(rede);
+      desenharComo(certificadoId, ids, cert, lote, erroCert, erroLote);
+      resultado.hidden = false;
+
+      const txtRegra = regra ? (regra.ok ? 'regra das atividades cumprida' : 'regra das atividades não cumprida') : 'regra das atividades não avaliada';
+      anuncio.textContent = `Certificado: ${vCert}. Check-ins: ${vLote}. ${txtRegra}.`;
+    } catch (e) {
+      if (minha !== rodada) return;
+      resultado.hidden = true;
+      if (e instanceof ErroNo) {
+        mostrarStatus('erro', 'O nó não respondeu. Nenhum veredito foi emitido.',
+          `Nó consultado: ${url} (${e.message}).`,
+          'Confira se a instância está no ar: docker compose -f demo-verificacao/rede/docker-compose.yml up -d');
+        anuncio.textContent = 'O nó não respondeu. Nenhum veredito foi emitido.';
+      } else {
+        mostrarStatus('erro', 'Falha na consulta. Nenhum veredito foi emitido.', e.message);
+        anuncio.textContent = 'Falha na consulta. Nenhum veredito foi emitido.';
+      }
+    } finally {
+      if (minha === rodada) { $('botao-verificar').disabled = false; resultado.removeAttribute('aria-busy'); }
+    }
+  }
+
+  const EXPLICA = {
+    VALIDO: 'O valor recalculado é igual ao registrado no contrato.',
+    ADULTERADO: 'Há registro no contrato, mas o valor recalculado é diferente.',
+    NAO_ANCORADO: 'Não há registro no contrato para este código.',
+  };
+  const ICONE = { VALIDO: '✓', ADULTERADO: '✕', NAO_ANCORADO: '?' };
+
+  function desenharVeredito(alvo, titulo, nomeValor, veredito, recalc, oc, tamanho, erroArq, nota, id, preimagem) {
+    alvo.className = `cartao veredito v-${veredito}`;
+    const noContrato = oc.existe ? oc.fingerprint : null;
+    const dados = el('dl', { class: 'dados' });
+    const par = (dt, dd) => dados.append(el('dt', { text: dt }), typeof dd === 'string' ? el('dd', { text: dd }) : el('dd', {}, dd));
+    if (oc.existe) {
+      const tamTxt = tamanho === null ? `${oc.tamanho} no contrato` : `${tamanho} recalculado · ${oc.tamanho} no contrato`;
+      par('Tamanho', tamTxt + (tamanho !== null && tamanho !== oc.tamanho ? ' (diferente)' : ''));
+      par('Registrado em', registroLegivel(oc.registradoEm));
+      par('Registrado por', el('span', { class: 'mono', text: oc.registradoPor }));
+    }
+    par('Id no contrato', el('span', { class: 'mono', text: id }));
+    par('Derivado de', el('span', { class: 'mono', text: `keccak256("${preimagem}")` }));
+
+    limpar(alvo).append(...[
+      el('h3', { id: alvo.id + '-t', text: titulo }),
+      el('p', { class: 'selo' }, el('span', { class: 'icone', 'aria-hidden': 'true', text: ICONE[veredito] }), el('span', { text: veredito })),
+      el('p', { class: 'explica', text: EXPLICA[veredito] }),
+      el('div', { class: 'comparacao' },
+        el('div', { class: 'valor' }, el('span', { class: 'rotulo', text: `${nomeValor}, recalculado nesta página` }),
+          erroArq ? el('code', { text: '(não calculado)' }) : comDiferencas(recalc, noContrato)),
+        el('div', { class: 'valor' }, el('span', { class: 'rotulo', text: 'Registrado no contrato' }),
+          comDiferencas(noContrato, erroArq ? null : recalc))),
+      erroArq ? el('p', { class: 'erro-arquivo', text: `O arquivo não passa na serialização canônica: ${erroArq}` }) : null,
+      nota ? el('p', { class: 'erro-arquivo', text: nota }) : null,
+      dados,
+    ].filter(Boolean));
+  }
+
+  function desenharCertificado(c, calc) {
+    const alvo = limpar($('certificado-visto'));
+    const ativ = calc ? calc.certificado.atividades : (Array.isArray(c.atividades) ? c.atividades : null);
+    const tabela = ativ && ativ.length ? el('table', {},
+      el('caption', { class: 'sr-only', text: 'Atividades do certificado' }),
+      el('thead', {}, el('tr', {}, el('th', { scope: 'col', text: 'Atividade' }), el('th', { scope: 'col', class: 'num', text: 'Carga horária' }))),
+      el('tbody', {}, ativ.map((a) => el('tr', {}, el('td', { text: String(a && a.nome) }), el('td', { class: 'num', text: cargaLegivel(a && a.carga_horaria_minutos) })))))
+      : null;
+    alvo.append(el('div', { class: 'certificado' },
+      el('p', { class: 'tipo', text: 'Certificado de participação' }),
+      el('p', { class: 'titular', text: String(c.nome_titular ?? '') }),
+      el('p', { class: 'texto' }, 'participou do evento ', el('strong', { text: String(c.evento_nome ?? '') }),
+        ', com carga horária total de ', el('strong', { text: cargaLegivel(c.carga_horaria_minutos) }), '.'),
+      tabela,
+      el('div', { class: 'rodape' },
+        el('span', {}, 'Emitido em ', el('strong', { text: instanteLegivel(c.emitido_em) })),
+        el('span', {}, 'Código ', el('strong', { class: 'mono', text: String(c.certificado_id ?? '') })),
+        c.substitui ? el('span', {}, 'Substitui ', el('strong', { class: 'mono', text: String(c.substitui) })) : null)));
+  }
+
+  function desenharRegra(regra, erroArq) {
+    const alvo = limpar($('regra'));
+    if (!regra) { alvo.append(el('p', { text: `Não avaliada: ${erroArq}` })); return; }
+    if (!regra.aplicavel) { alvo.append(el('p', { text: `Não se aplica (${regra.motivo}).` })); return; }
+    alvo.append(el('p', { class: 'resumo-regra', text: regra.ok ? 'Cumprida: todas as atividades têm check-in do titular.' : 'Não cumprida: há atividade sem check-in do titular.' }));
+    alvo.append(el('ul', { class: 'regra' }, regra.atividades.map((a) => el('li', {},
+      el('span', { class: a.ok ? 'marca-ok' : 'marca-falta', text: a.ok ? '✓ ' : '✕ ' }),
+      el('strong', { text: a.nome }), ` — ${a.checkins_do_titular} check-in(s) do titular`,
+      a.checkins.length ? el('ul', {}, a.checkins.map((r) => el('li', {},
+        el('span', { class: 'mono', text: instanteLegivel(r.horario_checkin) }),
+        r.feito_por ? ` · registrado por ${r.feito_por}` : ' · feito pelo próprio participante'))) : null))));
+  }
+
+  function desenharRede(rede) {
+    const dl = limpar($('rede'));
+    const par = (dt, dd) => dl.append(el('dt', { text: dt }), el('dd', {}, dd));
+    par('chainId', `${rede.chainId} — confere com o deployment.json`);
+    par('Hash do bloco 0', el('span', {}, el('span', { class: 'mono', text: rede.hashBloco0 }), ' — confere'));
+    par('Contrato', el('span', {}, el('span', { class: 'mono', text: IMPL.endereco }), ' — com código nesta rede'));
+    par('Nó consultado', el('span', { class: 'mono', text: rede.url }));
+    par('Bloco atual', String(rede.bloco));
+    par('Conferido em', new Date().toLocaleString('pt-BR'));
+  }
+
+  function desenharComo(certificadoId, ids, cert, lote, erroCert, erroLote) {
+    const alvo = limpar($('como'));
+    const pre = (t) => el('pre', { text: t });
+    const passos = el('ol', { class: 'passos' });
+    passos.append(el('li', {}, 'Conferir a rede antes de tudo: chainId e hash do bloco 0 iguais aos do deployment.json, e código no endereço do contrato.'));
+    passos.append(el('li', {}, `Derivar os ids do código digitado (${certificadoId}):`,
+      pre(`keccak256("${ids.preimagens.certificado}") = ${ids.certificado}\nkeccak256("${ids.preimagens.checkins}") = ${ids.checkins}`)));
+    passos.append(el('li', {}, 'Serializar o certificado na forma canônica (chaves em ordem alfabética, sem espaços, só ", \\ e controles escapados, UUIDs em minúsculas, atividades ordenadas pelo id) e calcular o SHA-256 dos bytes UTF-8:',
+      erroCert ? el('p', { class: 'erro-arquivo', text: erroCert }) : [pre(cert.canonico), pre(`sha256 = ${cert.hash}`)]));
+    const itensLote = [];
+    if (lote) {
+      itensLote.push(pre(`h0 = sha256("${lote.semente}") = ${lote.cadeia[0]}`));
+      lote.itens.forEach((it, i) => {
+        itensLote.push(el('h3', { text: `Registro ${i + 1}` }), pre(it.canonico), pre(`h${i + 1} = sha256(h${i} + registro ${i + 1}) = ${lote.cadeia[i + 1]}`));
+      });
+      itensLote.push(pre(`fingerprint = h${lote.tamanho} = ${lote.fingerprint}`));
+    }
+    passos.append(el('li', {}, 'Ordenar os check-ins por horario_checkin e depois atividade_id, serializar cada um na mesma forma canônica e encadear: h0 = SHA256(semente), h_i = SHA256(hex(h_{i−1}) + registro_i).',
+      erroLote ? el('p', { class: 'erro-arquivo', text: erroLote }) : itensLote));
+    passos.append(el('li', {}, `Chamar consultarPorId(bytes32) por eth_call (seletor ${N.seletor(N.ASSINATURA_CONSULTA)}) e decodificar (fingerprint, registradoEm, tamanho, registradoPor, existe):`,
+      pre(`para o certificado: ${N.dadosConsulta(ids.certificado)}\npara os check-ins:  ${N.dadosConsulta(ids.checkins)}`)));
+    passos.append(el('li', {}, 'Comparar: VALIDO se o valor recalculado e o tamanho forem iguais aos do contrato; ADULTERADO se houver registro e algo diferir; NAO_ANCORADO se não houver registro.'));
+    alvo.append(passos);
+  }
+
+  // ---------- eventos ----------
+  $('form').addEventListener('submit', (e) => { e.preventDefault(); verificar(); });
+  $('usar-exemplo').addEventListener('click', async () => {
+    document.querySelector('input[name=fonte][value=exemplo]').checked = true;
+    await carregarFonte();
+    campoId.value = EXEMPLO.certificado.certificado_id;
+    verificar();
+  });
+  for (const r of document.querySelectorAll('input[name=fonte]')) r.addEventListener('change', async () => { await carregarFonte(); resultado.hidden = true; esconderStatus(); });
+  for (const id of ['arq-cert', 'arq-chk']) $(id).addEventListener('change', async () => { await carregarFonte(); resultado.hidden = true; esconderStatus(); });
+
+  carregarFonte();
+})();
+</script>
+</body>
+</html>
